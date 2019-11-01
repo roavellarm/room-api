@@ -1,0 +1,37 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: New Rails API - Error
+description: An error represents a failed action in the API
+stability: prototype
+strictProperties: true
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of error
+    readOnly: true
+    pattern: "^\\w+$"
+    type:
+    - string
+  message:
+    description: message of error
+    readOnly: true
+    type:
+    - string
+  identity:
+    anyOf:
+    - "$ref": "/schemata/error#/definitions/id"
+links:
+- description: Info for existing error.
+  href: "/errors/{(%2Fschemata%2Ferror%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  targetSchema:
+    "$ref": "/schemata/error"
+  title: Info
+properties:
+  id:
+    "$ref": "/schemata/error#/definitions/id"
+  message:
+    "$ref": "/schemata/error#/definitions/message"
+id: schemata/error

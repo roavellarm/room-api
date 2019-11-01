@@ -1,0 +1,38 @@
+---
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: New Rails API - User
+description: A user
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the user
+    readOnly: true
+    type:
+    - integer
+  first_name:
+    description: first name of the user
+    type: string
+  last_name:
+    description: last name of the user
+    type: string
+  email:
+    description: the email of the user
+    format: email
+    type: string
+  identity:
+    anyOf:
+    - $ref: /schemata/user#/definitions/id
+links: []
+properties:
+  id:
+    $ref: /schemata/user#/definitions/id
+  first_name:
+    $ref: /schemata/user#/definitions/first_name
+  last_name:
+    $ref: /schemata/user#/definitions/last_name
+  email:
+    $ref: /schemata/user#/definitions/email
+additionalProperties: false
+id: schemata/user

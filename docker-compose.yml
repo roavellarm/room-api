@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  rails:
+    build: .
+    env_file:
+      - .env
+    command: ruby bin/rails s -p 5000 -b '0.0.0.0'
+    volumes:
+      - ".:/app"
+    links:
+      - postgres
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+
+  postgres:
+    image: postgres:9.6.4
+    env_file:
+      - .env
+    volumes:
+      - ".:/app"
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"

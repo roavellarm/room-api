@@ -1,0 +1,57 @@
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: New Rails API - Admin Texts
+description: An admin text is a text for an admin area
+stability: prototype
+type:
+  - object
+definitions:
+  id:
+    description: unique identifier of the Admin Text
+    readOnly: true
+    type:
+      - integer
+  tag:
+    description: the tag that references the admin text
+    readOnly: true
+    type: string
+  text:
+    description: the content of admin text
+    readOnly: true
+    type: string
+  tag_with_text:
+    description: key-value pair with the tag and the corresponding text
+    type: object
+    properties:
+      tag:
+        $ref: /schemata/admin_text#/definitions/tag
+      text:
+        $ref: /schemata/admin_text#/definitions/text
+  identity:
+    anyOf:
+      - $ref: /schemata/admin_text#/definitions/id
+links:
+  - description: Show the admin texts for the tags.
+    href: "/admin_texts"
+    method: GET
+    rel: self
+    schema:
+      additionalProperties: false
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: /schemata/admin_text#/definitions/tag
+      type:
+        - object
+    targetSchema:
+      anyOf:
+        - {
+            type: array,
+            items: { $ref: /schemata/admin_text#/definitions/tag_with_text },
+          }
+        - $ref: /schemata/error
+    title: List
+properties:
+  id:
+    $ref: /schemata/admin_text#/definitions/id
+id: schemata/admin_text

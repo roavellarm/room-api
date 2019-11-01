@@ -1,0 +1,22 @@
+<mjml>
+  <%= render partial: 'layouts/header' %>
+
+   <mj-body background-color="#E7E7E7" width="600px" css-class="mjml-body">
+    <mj-wrapper padding-top="0" padding-bottom="0" css-class="body-section">
+
+       <mj-section full-width="full-width" background-color="#ffffff" padding-top="60px">
+        <mj-column width="100%">
+          <mj-image src="http://additionplus.com/wp-content/uploads/2018/02/example-logo-2.png" width="200px" align="center" alt="" padding="0"/>
+        </mj-column>
+      </mj-section>
+
+       <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px" padding-bottom="150px">
+        <mj-column width="100%">
+          <%= yield %>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+
+     <%= render partial: 'layouts/footer' %>
+  </mj-body>
+</mjml>

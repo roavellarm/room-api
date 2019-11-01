@@ -1,0 +1,90 @@
+---
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: New Rails API - Social Media
+description: A Login with Social Media
+stability: prototype
+type:
+- object
+definitions:
+  email:
+    description: the email of the user
+    format: email
+    type:
+    - string
+    - "null"
+  given_name:
+    description: first name of the user
+    type:
+    - string
+    - "null"
+  family_name:
+    description: last name of the user
+    type:
+    - string
+    - "null"
+  provider:
+    description: provider of login data
+    type: string
+  token_id:
+    description: token id built for an order
+    type:
+    - string
+    - "null"
+  input_token:
+    description: facebook input token
+    type:
+    - string
+    - "null"
+  access_token:
+    description: google generated access_token
+    type:
+    - string
+    - "null"
+  name:
+    description: name that comes from facebook
+    type:
+    - string
+    - "null"
+  identity:
+    anyOf:
+    - $ref: /schemata/social_media#/definitions/email
+links:
+- title: Create
+  description: create a new Login with social media
+  href: "/auth/social_media/{(%2Fschemata%2Fsocial_media%23%2Fdefinitions%2Fprovider)}"
+  method: POST
+  rel: create
+  schema:
+    additionalProperties: false
+    type:
+    - object
+    properties:
+      email:
+        $ref: /schemata/social_media#/definitions/email
+      given_name:
+        $ref: /schemata/social_media#/definitions/given_name
+      family_name:
+        $ref: /schemata/social_media#/definitions/family_name
+      token_id:
+        $ref: /schemata/social_media#/definitions/token_id
+      input_token:
+        $ref: /schemata/social_media#/definitions/input_token
+      name:
+        $ref: /schemata/social_media#/definitions/name
+      access_token:
+        $ref: /schemata/social_media#/definitions/access_token
+  targetSchema:
+    anyOf:
+    - $ref: /schemata/social_media
+    - $ref: /schemata/error
+properties:
+  id:
+    $ref: /schemata/user#/definitions/id
+  first_name:
+    $ref: /schemata/user#/definitions/first_name
+  last_name:
+    $ref: /schemata/user#/definitions/last_name
+  email:
+    $ref: /schemata/user#/definitions/email
+additionalProperties: false
+id: schemata/social_media

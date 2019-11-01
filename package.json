@@ -1,0 +1,13 @@
+{
+  "name": "room-api",
+  "engines": {
+    "node": "12.x"
+  },
+  "dependencies": {
+    "husky": "^3.0.9",
+    "mjml": "4.4.1"
+  },
+  "scripts": {
+    "build": "npm install -g mjml@4.4.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "description": "The API for a Room Api",
+  "id": "room-api",
+  "links": [
+    {
+      "href": "https://api.room-api.com",
+      "rel": "self"
+    }
+  ],
+  "title": "Room Api - API"
+}

@@ -1,0 +1,47 @@
+---
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: New Rails API - Faq
+description: A faq is a series of frequently asked questions paired with answers that provides basic information
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the faq
+    readOnly: true
+    type: integer
+  question:
+    description: a question of the faq
+    type: string
+  answer:
+    description: an answer of a question of the faq
+    type: string
+  identity:
+    anyOf:
+    - $ref: /schemata/faq#/definitions/id
+links:
+- title: List
+  description: List all faqs, that is, all faq questions and answers
+  href: "/faq"
+  method: GET
+  rel: instances
+  schema:
+    additionalProperties: false
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+      - type: array
+        items:
+          "$ref": "/schemata/faq"
+      - "$ref": "/schemata/error"
+properties:
+  id:
+    $ref: /schemata/faq#/definitions/id
+  question:
+    $ref: /schemata/faq#/definitions/question
+  answer:
+    $ref: /schemata/faq#/definitions/answer
+additionalProperties: false
+id: schemata/faq

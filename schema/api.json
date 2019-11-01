@@ -1,0 +1,465 @@
+{
+  "$schema": "http://interagent.github.io/interagent-hyper-schema",
+  "type": [
+    "object"
+  ],
+  "definitions": {
+    "admin_text": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "New Rails API - Admin Texts",
+      "description": "An admin text is a text for an admin area",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the Admin Text",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "tag": {
+          "description": "the tag that references the admin text",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "text": {
+          "description": "the content of admin text",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "tag_with_text": {
+          "description": "key-value pair with the tag and the corresponding text",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "tag": {
+              "$ref": "#/definitions/admin_text/definitions/tag"
+            },
+            "text": {
+              "$ref": "#/definitions/admin_text/definitions/text"
+            }
+          }
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/admin_text/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Show the admin texts for the tags.",
+          "href": "/admin_texts",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "tags": {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/admin_text/definitions/tag"
+                }
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/admin_text/definitions/tag_with_text"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          },
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/admin_text/definitions/id"
+        }
+      }
+    },
+    "error": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "New Rails API - Error",
+      "description": "An error represents a failed action in the API",
+      "stability": "prototype",
+      "strictProperties": true,
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of error",
+          "readOnly": true,
+          "pattern": "^\\w+$",
+          "type": [
+            "string"
+          ]
+        },
+        "message": {
+          "description": "message of error",
+          "readOnly": true,
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/error/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "description": "Info for existing error.",
+          "href": "/errors/{(%23%2Fdefinitions%2Ferror%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/error"
+          },
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/error/definitions/id"
+        },
+        "message": {
+          "$ref": "#/definitions/error/definitions/message"
+        }
+      }
+    },
+    "faq": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "New Rails API - Faq",
+      "description": "A faq is a series of frequently asked questions paired with answers that provides basic information",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the faq",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "question": {
+          "description": "a question of the faq",
+          "type": [
+            "string"
+          ]
+        },
+        "answer": {
+          "description": "an answer of a question of the faq",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/faq/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "List",
+          "description": "List all faqs, that is, all faq questions and answers",
+          "href": "/faq",
+          "method": "GET",
+          "rel": "instances",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/faq"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/faq/definitions/id"
+        },
+        "question": {
+          "$ref": "#/definitions/faq/definitions/question"
+        },
+        "answer": {
+          "$ref": "#/definitions/faq/definitions/answer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "social_media": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "New Rails API - Social Media",
+      "description": "A Login with Social Media",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "email": {
+          "description": "the email of the user",
+          "format": "email",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "given_name": {
+          "description": "first name of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "family_name": {
+          "description": "last name of the user",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provider": {
+          "description": "provider of login data",
+          "type": [
+            "string"
+          ]
+        },
+        "token_id": {
+          "description": "token id built for an order",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "input_token": {
+          "description": "facebook input token",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "access_token": {
+          "description": "google generated access_token",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "name that comes from facebook",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/social_media/definitions/email"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "Create",
+          "description": "create a new Login with social media",
+          "href": "/auth/social_media/{(%23%2Fdefinitions%2Fsocial_media%2Fdefinitions%2Fprovider)}",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additionalProperties": false,
+            "type": [
+              "object"
+            ],
+            "properties": {
+              "email": {
+                "$ref": "#/definitions/social_media/definitions/email"
+              },
+              "given_name": {
+                "$ref": "#/definitions/social_media/definitions/given_name"
+              },
+              "family_name": {
+                "$ref": "#/definitions/social_media/definitions/family_name"
+              },
+              "token_id": {
+                "$ref": "#/definitions/social_media/definitions/token_id"
+              },
+              "input_token": {
+                "$ref": "#/definitions/social_media/definitions/input_token"
+              },
+              "name": {
+                "$ref": "#/definitions/social_media/definitions/name"
+              },
+              "access_token": {
+                "$ref": "#/definitions/social_media/definitions/access_token"
+              }
+            }
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/social_media"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/user/definitions/id"
+        },
+        "first_name": {
+          "$ref": "#/definitions/user/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/user/definitions/last_name"
+        },
+        "email": {
+          "$ref": "#/definitions/user/definitions/email"
+        }
+      },
+      "additionalProperties": false
+    },
+    "user": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "New Rails API - User",
+      "description": "A user",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the user",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "first_name": {
+          "description": "first name of the user",
+          "type": [
+            "string"
+          ]
+        },
+        "last_name": {
+          "description": "last name of the user",
+          "type": [
+            "string"
+          ]
+        },
+        "email": {
+          "description": "the email of the user",
+          "format": "email",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/user/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/user/definitions/id"
+        },
+        "first_name": {
+          "$ref": "#/definitions/user/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/user/definitions/last_name"
+        },
+        "email": {
+          "$ref": "#/definitions/user/definitions/email"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "admin_text": {
+      "$ref": "#/definitions/admin_text"
+    },
+    "error": {
+      "$ref": "#/definitions/error"
+    },
+    "faq": {
+      "$ref": "#/definitions/faq"
+    },
+    "social_media": {
+      "$ref": "#/definitions/social_media"
+    },
+    "user": {
+      "$ref": "#/definitions/user"
+    }
+  },
+  "description": "The API for a Room Api",
+  "id": "room-api",
+  "links": [
+    {
+      "href": "https://api.room-api.com",
+      "rel": "self"
+    }
+  ],
+  "title": "Room Api - API"
+}
