@@ -20,10 +20,11 @@ Rbenv: [repo](https://github.com/rbenv/rbenv)
 
 Rbenv-gemset: [repo](https://github.com/jf/rbenv-gemset)
 
-#### 4. Install Ruby
+#### 4. Install and set Ruby
 
 ```
 $ rbenv install 2.5.5
+$ rbenv global 2.5.5
 ```
 
 #### 5. Install last Node version & MJML package
