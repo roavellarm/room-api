@@ -5,10 +5,11 @@ module ModelFactories
   TABLES_TO_CLEAN = ['public.users'].freeze
 
   def seed_database
-    # User this method to list all the data that should be immutable and present
+    # Use this method to list all the data that should be immutable and present
     # every time
     # we start a spec case/ressed the development database
     average_joe
+    some_room
   end
 
   def teardown
@@ -25,5 +26,14 @@ module ModelFactories
     ) do |u|
       u.password = 'password'
     end
+  end
+
+  def some_room
+    @some_room ||= Room.find_or_create_by!(
+      title: "Ornitorrinco's Room",
+      subtitle: 'A place for chating',
+      background_image: 'https://picsum.photos/600/400',
+      avatar_image: 'https://i.pravatar.cc/150'
+    )
   end
 end
