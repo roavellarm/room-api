@@ -4,6 +4,16 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/3b1d1f45ed6730d2dedb/maintainability)](https://codeclimate.com/github/roavellarm/room-api/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3b1d1f45ed6730d2dedb/test_coverage)](https://codeclimate.com/github/roavellarm/room-api/test_coverage)
 
+
+![meeting room](https://raw.githubusercontent.com/roavellarm/room-web/master/public/images/meeting-room.jpg)
+
+This is the API of the Room project which is a web application that aims to improve the interaction experience of remote workers.
+
+You can get the [frontend](https://github.com/roavellarm/room-web), the [Endpoints documentation](https://github.com/roavellarm/room-api/blob/master/schema/api.md) and the [MVP Process Documentation](https://github.com/roavellarm/room-doc/blob/master/README.md) on github.
+
+Check the work in progress application <a href="https://room-web.netlify.com/" target="_blank">here</a>.
+
+
 ## Installation (Standalone)
 
 #### 1. Install PostgreSQL
