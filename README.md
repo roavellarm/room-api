@@ -1,8 +1,8 @@
 # Room Api
 
 [![CircleCI](https://circleci.com/gh/roavellarm/room-api.svg?style=svg)](https://circleci.com/gh/roavellarm/room-api)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3b1d1f45ed6730d2dedb/maintainability)](https://codeclimate.com/github/roavellarm/room-api/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3b1d1f45ed6730d2dedb/test_coverage)](https://codeclimate.com/github/roavellarm/room-api/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a8ff1d48acb81616a666/maintainability)](https://codeclimate.com/github/roavellarm/room-api/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a8ff1d48acb81616a666/test_coverage)](https://codeclimate.com/github/roavellarm/room-api/test_coverage)
 
 
 ![meeting room](https://raw.githubusercontent.com/roavellarm/room-web/master/public/images/meeting-room.jpg)
@@ -140,7 +140,7 @@ $ docker ps
 This command will show the running containers, example:
 
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-dfb80bf0ae96        postgres:10.4       "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:5432->5432/tcp   new-rails-api_postgres_1
+dfb80bf0ae96        postgres:10.4       "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:5432->5432/tcp   room-api_postgres_1
 ```
 
 ### Running commands using docker-compose
