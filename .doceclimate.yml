@@ -1,3 +1,4 @@
+version: "2"
 plugins:
   brakeman:
     enabled: true
@@ -5,13 +6,26 @@ plugins:
     enabled: true
   eslint:
     enabled: true
-
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        ruby:
+          mass_threshold: 18
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+    channel: rubocop-0-73
 exclude_patterns:
-# examples of auto-generated exclusions
+exclude_patterns:
 - db/*
 - spec/*
 - tests/*
 - vendor/*
+- .gems/
 
 # examples of third party libraries that should be excluded
 - */jquery/*
