@@ -12,7 +12,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: root
           RAILS_ENV: test
-          # CC_TEST_REPORTER_ID: ${CC_TEST_REPORTER_ID}
+          CC_TEST_REPORTER_ID: ${CC_TEST_REPORTER_ID}
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -54,22 +54,22 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # # Setup coverage report
-      # - run:
-      #     name: Setup Code Climate test-reporter
-      #     command: |
-      #       curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      #       chmod +x ./cc-test-reporter
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
       # run tests!
-      # - run:
-      #     name: Run tests
-      #     command: |
-      #       mkdir /tmp/test-results
-      #       ./cc-test-reporter before-build
-      #       bundle exec rspec --format progress \
-      #                       --format RspecJunitFormatter \
-      #                       --out /tmp/test-results/rspec.xml \
-      #                       --format progress
-      #       ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+      - run:
+          name: Run tests
+          command: |
+            mkdir /tmp/test-results
+            ./cc-test-reporter before-build
+            bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress
+            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
       # collect reports
       - store_test_results:
           path: /tmp/test-results
