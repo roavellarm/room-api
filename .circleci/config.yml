@@ -59,7 +59,7 @@ jobs:
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
-      run tests!
+      # run tests!
       - run:
           name: Run tests
           command: |
@@ -70,7 +70,7 @@ jobs:
                             --out /tmp/test-results/rspec.xml \
                             --format progress
             ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
-      collect reports
+      # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
