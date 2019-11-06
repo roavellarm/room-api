@@ -140,7 +140,7 @@ $ docker ps
 This command will show the running containers, example:
 
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-dfb80bf0ae96        postgres:10.4       "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:5432->5432/tcp   new-rails-api_postgres_1
+dfb80bf0ae96        postgres:10.4       "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:5432->5432/tcp   room-api_postgres_1
 ```
 
 ### Running commands using docker-compose
