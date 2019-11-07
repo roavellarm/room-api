@@ -10,6 +10,21 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :user_roles
+  has_many :roles, through: :user_roles
+  # has_many :user_organizations
+  # has_many :organizations, through: :user_organizations
+
+  # has_many :rooms, dependent: :destroy
+  # has_many :organizations, inverse_of: 'owner', dependent: :destroy
+  # has_many :organizations, through: :organizations_members
+
+  # has_many :students, dependent: :destroy
+  # has_many :check_ins, dependent: :destroy
+  # belongs_to :student, optional: true, inverse_of: :student_user
+  # has_many :students_caregivers, dependent: :destroy
+  # has_many :shared_students, source: :student, through: 'students_caregivers'
+
   def as_json(_options = {})
     {
       id: id,
@@ -17,6 +32,10 @@ class User < ApplicationRecord
       last_name: last_name,
       email: email
     }
+  end
+
+  def as_a(role)
+    user_roles.find_by(role: role)
   end
 
   def self.first_or_initialize_for_google(data)

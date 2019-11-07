@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Room < ApplicationRecord
+  # belongs_to :organization
+  # belongs_to :user, dependent: :destroy
+
   def as_json(_options = {})
     {
       id: id,

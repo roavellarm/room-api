@@ -9,6 +9,7 @@ module ModelFactories
     # every time
     # we start a spec case/ressed the development database
     average_joe
+    some_organization
     some_room
   end
 
@@ -28,12 +29,30 @@ module ModelFactories
     end
   end
 
+  def some_organization
+    @some_organization ||= Organization.find_or_create_by!(
+      user: average_joe,
+      name: 'Foo Organization',
+      description: 'Lorem ipsum amet'
+    )
+  end
+
   def some_room
     @some_room ||= Room.find_or_create_by!(
-      title: "Ornitorrinco's Room",
+      user: average_joe,
+      organization: some_organization,
+      title: "Bar's Room",
       subtitle: 'A place for chating',
       background_image: 'https://picsum.photos/600/400',
       avatar_image: 'https://i.pravatar.cc/150'
+    )
+  end
+
+  def some_member
+    @some_member ||= Organization.find_or_create_by!(
+      user: average_joe,
+      name: 'Foo Organization',
+      description: 'Lorem ipsum amet'
     )
   end
 end
