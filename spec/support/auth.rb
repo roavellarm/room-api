@@ -4,8 +4,8 @@ RSpec.shared_context 'with current_user' do
   let!(:current_user) do
     user = User.create!(
       email: 'current.user@email.com',
-      first_name: 'Average',
-      last_name: 'Joe',
+      first_name: 'Current',
+      last_name: 'User',
       password: 'foobar123'
     )
     user

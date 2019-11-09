@@ -4,19 +4,21 @@ class User < ApplicationRecord
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable
+
   validates :first_name, :last_name, presence: true
 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :user_orgs
+  has_many :orgs, through: :user_orgs
+
   def as_json(_options = {})
-    {
-      id: id,
+    { id: id,
       first_name: first_name,
       last_name: last_name,
-      email: email
-    }
+      email: email }
   end
 
   def self.first_or_initialize_for_google(data)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_103947) do
+ActiveRecord::Schema.define(version: 2019_11_08_103947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,33 @@ ActiveRecord::Schema.define(version: 2019_11_01_103947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orgs", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rooms", force: :cascade do |t|
+    t.bigint "org_id"
     t.string "title"
     t.string "subtitle"
     t.string "background_image"
     t.string "avatar_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["org_id"], name: "index_rooms_on_org_id"
+  end
+
+  create_table "user_orgs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "org_id"
+    t.boolean "owner"
+    t.boolean "member"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["org_id"], name: "index_user_orgs_on_org_id"
+    t.index ["user_id"], name: "index_user_orgs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,4 +91,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_103947) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "rooms", "orgs"
+  add_foreign_key "user_orgs", "orgs"
+  add_foreign_key "user_orgs", "users"
 end
