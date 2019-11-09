@@ -18,21 +18,17 @@ describe 'GET /faq', type: :request do
   end
 
   let(:expected_hash) do
-    [
-      { id: faq_5.id, question: 'Foo 5', answer: 'Bar 5' },
-      { id: faq_2.id, question: 'Foo 2', answer: 'Bar 2' },
-      { id: faq_3.id, question: 'Foo 3', answer: 'Bar 3' },
-      { id: faq_1.id, question: 'Foo 1', answer: 'Bar 1' },
-      { id: faq_4.id, question: 'Foo 4', answer: 'Bar 4' }
-    ].to_json
+    [{ id: faq_5.id, question: 'Foo 5', answer: 'Bar 5' },
+     { id: faq_2.id, question: 'Foo 2', answer: 'Bar 2' },
+     { id: faq_3.id, question: 'Foo 3', answer: 'Bar 3' },
+     { id: faq_1.id, question: 'Foo 1', answer: 'Bar 1' },
+     { id: faq_4.id, question: 'Foo 4', answer: 'Bar 4' }].to_json
   end
 
   before { create_faqs }
 
   context 'without params' do
-    before do
-      get '/faq'
-    end
+    before { get '/faq' }
 
     it { expect(response).to have_http_status(:ok) }
     it { expect(response.body).to eq(expected_hash) }
@@ -42,9 +38,7 @@ describe 'GET /faq', type: :request do
   context 'with unpermitted params' do
     let(:params) { { foo: 'bar' }.to_json }
 
-    before do
-      get '/faq', params: params
-    end
+    before { get '/faq', params: params }
 
     it { expect(response).to have_http_status(:bad_request) }
   end
