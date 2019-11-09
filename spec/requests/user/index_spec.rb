@@ -25,8 +25,19 @@ describe 'GET /user', type: :request do
        email: 'sally@email.com' }].to_json
   end
 
-  before { get '/user' }
+  context 'without params' do
+    before { get '/user' }
 
-  it { expect(response).to have_http_status :ok }
-  it { expect(response.body).to eq(expected_hash) }
+    it { expect(response).to have_http_status :ok }
+    it { expect(response.body).to eq(expected_hash) }
+    it { expect(JSON.parse(response.body).length).to eq(4) }
+  end
+
+  context 'with unpermitted params' do
+    let(:params) { { foo: 'bar' }.to_json }
+
+    before { get '/user', params: params }
+
+    it { expect(response).to have_http_status(:bad_request) }
+  end
 end
