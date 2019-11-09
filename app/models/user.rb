@@ -4,8 +4,9 @@ class User < ApplicationRecord
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable
+
   validates :first_name, :last_name, presence: true
 
   include DeviseTokenAuth::Concerns::User
@@ -19,11 +20,6 @@ class User < ApplicationRecord
       last_name: last_name,
       email: email }
   end
-
-  # def as_a(role)
-  #   role = Role.find_by(name: role.downcase) if role.class == String
-  #   user_roles.find_by(role: role)
-  # end
 
   def self.first_or_initialize_for_google(data)
     where(uid: data['email']).first_or_initialize.tap do |user|

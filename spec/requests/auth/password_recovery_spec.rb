@@ -5,19 +5,15 @@ require 'rails_helper'
 describe 'PUT /auth/password', type: :request do
   include_context 'with current_user'
 
-  let(:reset_headers) do
-    { 'uid': '', 'client': '', 'access-token': '' }
-  end
+  let(:reset_headers) { { 'uid': '', 'client': '', 'access-token': '' } }
 
   let(:correct_params) do
     { password: 'new_password',
       password_confirmation: 'new_password',
-      reset_password_token: reset_tokens[0] }
+      reset_password_token: reset_tokens[0] }.to_json
   end
 
-  let(:incorrect_params) do
-    { reset_password_token: reset_tokens[0] }
-  end
+  let(:incorrect_params) { { reset_password_token: reset_tokens[0] }.to_json }
 
   let!(:reset_tokens) do
     Devise.token_generator.generate(User, :reset_password_token)
@@ -44,24 +40,19 @@ describe 'PUT /auth/password', type: :request do
   end
 
   context 'without params' do
-    before do
-      put '/auth/password', params: {}.to_json, headers: reset_headers
-    end
+    before { put '/auth/password', params: {}.to_json, headers: reset_headers }
 
     it { expect(response).to have_http_status(:unauthorized) }
 
     it 'returns the correct error' do
-      expect(response.body).to eq({
-        success: false,
-        errors: ['Unauthorized']
-      }.to_json)
+      expect(response.body)
+        .to eq({ success: false, errors: ['Unauthorized'] }.to_json)
     end
   end
 
   context 'with incorrect params' do
     before do
-      put '/auth/password', params: incorrect_params.to_json,
-                            headers: reset_headers
+      put '/auth/password', params: incorrect_params, headers: reset_headers
     end
 
     it { expect(response).to have_http_status(:unprocessable_entity) }
@@ -91,8 +82,7 @@ describe 'PUT /auth/password', type: :request do
         reset_password_sent_at: Devise.reset_password_within.ago.utc - 1.second
       )
 
-      put '/auth/password', params: correct_params.to_json,
-                            headers: reset_headers
+      put '/auth/password', params: correct_params, headers: reset_headers
     end
 
     it { expect(response).to have_http_status(:unauthorized) }
@@ -107,8 +97,7 @@ describe 'PUT /auth/password', type: :request do
 
   context 'with correct params' do
     before do
-      put '/auth/password', params: correct_params.to_json,
-                            headers: reset_headers
+      put '/auth/password', params: correct_params, headers: reset_headers
     end
 
     it { expect(response).to have_http_status(:ok) }

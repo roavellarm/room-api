@@ -4,10 +4,8 @@ class AdminText < ApplicationRecord
   validates :field, :text, presence: true
 
   def as_json(_options = {})
-    {
-      id: id,
+    { id: id,
       field: field,
-      text: text
-    }
+      text: text }
   end
 end
