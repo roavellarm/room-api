@@ -5,8 +5,8 @@ class CreateUserOrgs < ActiveRecord::Migration[5.2]
     create_table :user_orgs do |t|
       t.references :user, foreign_key: true
       t.references :org, foreign_key: true
-      t.boolean :owner
-      t.boolean :member
+      t.boolean :owner, null: false
+      t.boolean :member, null: false
 
       t.timestamps
     end
