@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 module ModelFactories
-  TABLES_TO_CLEAN = ['public.users', 'public.user_roles',
-                     'public.roles', 'public.rooms'].freeze
+  TABLES_TO_CLEAN = ['public.users', 'public.user_orgs',
+                     'public.orgs', 'public.rooms'].freeze
 
   def seed_database
     average_joe
     average_fred
     average_sally
-    some_organization
-    # some_room
+    orange_org
+    banana_org
+    cafe_room
   end
 
   def teardown
@@ -58,7 +59,7 @@ module ModelFactories
 
   def cafe_room
     @cafe_room ||= Room.find_or_create_by!(
-      organization: banana_org,
+      org: banana_org,
       title: 'Cafe',
       subtitle: 'Take a break and drink some coffe',
       background_image: 'https://picsum.photos/600/400',
