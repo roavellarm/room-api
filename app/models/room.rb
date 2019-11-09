@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Room < ApplicationRecord
+  belongs_to :org
+
   def as_json(_options = {})
     { id: id,
       title: title,
