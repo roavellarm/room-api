@@ -8,6 +8,7 @@ RSpec.describe Room, type: :model do
   let(:expected_hash) do
     {
       id: room.id,
+      org: room.org,
       title: room.title,
       subtitle: room.subtitle,
       background_image: room.background_image,
@@ -18,6 +19,9 @@ RSpec.describe Room, type: :model do
   describe '#as_json' do
     subject { room.as_json }
 
-    it { is_expected.to eq(expected_hash) }
+    it { is_expected.to eq expected_hash }
   end
+
+  it { is_expected.to validate_presence_of :title }
+  it { is_expected.to belong_to :org }
 end
