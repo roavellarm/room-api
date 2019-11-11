@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+require 'pundit/rspec'
 
 SimpleCov.start 'rails' do
   add_filter ['.gems', 'lib/generators/']

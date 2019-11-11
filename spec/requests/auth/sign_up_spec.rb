@@ -29,7 +29,7 @@ describe 'POST /auth - Sign Up', type: :request do
     before { post '/auth', params: params.to_json }
 
     it { expect(response).to have_http_status(:ok) }
-    it { expect(User.count).to eq(3) }
+    it { expect(User.count).to eq(5) }
 
     it 'returns the created user' do
       expect(response.body)

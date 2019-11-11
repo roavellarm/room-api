@@ -3,8 +3,8 @@
 class Org < ApplicationRecord
   validates :name, presence: true
 
-  has_many :rooms
-  has_many :user_orgs
+  has_many :rooms, dependent: :destroy
+  has_many :user_orgs, dependent: :destroy
   has_many :users, through: :user_orgs
 
   def as_json(_options = {})
