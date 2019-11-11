@@ -33,12 +33,12 @@ module ModelFactories
   end
 
   def add_user(first_name)
-    @add_user ||= User.find_or_create_by!(
+    User.find_or_create_by!(
       email: "#{first_name.downcase}@email.com",
       first_name: first_name,
       last_name: 'Average'
     ) do |u|
-      u.password = 'password'
+      u.password = "#{first_name.downcase}password"
     end
   end
 

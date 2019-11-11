@@ -211,4 +211,32 @@ A user
 | **id** | *integer* | unique identifier of the user | `42` |
 | **last_name** | *string* | last name of the user | `"example"` |
 
+### <a name="link-GET-user-/user">User List</a>
+
+List all users
+
+```
+GET /user
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://api.room-api.com/user
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 

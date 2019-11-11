@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class SocialMediaController < ApplicationController
+  skip_before_action :authenticate_user!
+  skip_after_action :verify_authorized
+
   def auth
     result = create_user_from_login
     if result[:success]

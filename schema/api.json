@@ -418,6 +418,36 @@
         }
       },
       "links": [
+        {
+          "title": "List",
+          "description": "List all users",
+          "href": "/user",
+          "method": "GET",
+          "rel": "instances",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/user"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
       ],
       "properties": {
         "id": {
