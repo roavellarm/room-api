@@ -29,7 +29,7 @@ GET /admin_texts
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/admin_texts
+$ curl -n https://production-room-api.herokuapp.com//admin_texts
  -G \
   -d tags[]=
 ```
@@ -71,7 +71,7 @@ GET /errors/{error_id}
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/errors/$ERROR_ID
+$ curl -n https://production-room-api.herokuapp.com//errors/$ERROR_ID
 ```
 
 
@@ -115,7 +115,7 @@ GET /faq
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/faq
+$ curl -n https://production-room-api.herokuapp.com//faq
  -G \
   -d 
 ```
@@ -170,7 +170,7 @@ POST /feedback
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://api.room-api.com/feedback \
+$ curl -n -X POST https://production-room-api.herokuapp.com//feedback \
   -d '{
   "id": 42,
   "name": "example",
@@ -232,7 +232,7 @@ POST /auth/social_media/{social_media_provider}
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://api.room-api.com/auth/social_media/$SOCIAL_MEDIA_PROVIDER \
+$ curl -n -X POST https://production-room-api.herokuapp.com//auth/social_media/$SOCIAL_MEDIA_PROVIDER \
   -d '{
   "email": "username@example.com",
   "given_name": "example",
@@ -284,7 +284,7 @@ GET /user
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/user
+$ curl -n https://production-room-api.herokuapp.com//user
  -G \
   -d 
 ```

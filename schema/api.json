@@ -599,7 +599,7 @@
   "id": "room-api",
   "links": [
     {
-      "href": "https://api.room-api.com",
+      "href": "https://production-room-api.herokuapp.com/",
       "rel": "self"
     }
   ],
