@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Faq, type: :model do
+describe Faq, type: :model do
   let(:faq) do
     Faq.new(
       question: 'Foo question',

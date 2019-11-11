@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Org, type: :model do
+describe Org, type: :model do
   subject(:org) { orange_org }
 
   let(:expected_hash) do

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe DeviseMailer, type: :mailer do
+describe DeviseMailer, type: :mailer do
   describe '#reset_password_instructions' do
     subject(:mail) do
       described_class.reset_password_instructions(current_user, 'faketoken', {})

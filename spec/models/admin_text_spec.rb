@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe AdminText, type: :model do
+describe AdminText, type: :model do
   let(:admin_text) do
     AdminText.new(field: 'foo_field', text: 'foo_text')
   end

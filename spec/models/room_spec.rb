@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Room, type: :model do
+describe Room, type: :model do
   subject(:room) { cafe_room }
 
   let(:expected_hash) do
