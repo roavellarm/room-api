@@ -1,6 +1,6 @@
 ---
 $schema: http://json-schema.org/draft-04/hyper-schema
-title: New Rails API - Social Media
+title: Room API - Social Media
 description: A Login with Social Media
 stability: prototype
 type:

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CreateUserFromLoginProvider do
+describe CreateUserFromLoginProvider do
   context 'with facebook provider' do
     let(:request_url) do
       <<-TEXT

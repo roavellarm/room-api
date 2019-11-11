@@ -29,7 +29,7 @@ GET /admin_texts
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/admin_texts
+$ curl -n https://production-room-api.herokuapp.com//admin_texts
  -G \
   -d tags[]=
 ```
@@ -71,7 +71,7 @@ GET /errors/{error_id}
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/errors/$ERROR_ID
+$ curl -n https://production-room-api.herokuapp.com//errors/$ERROR_ID
 ```
 
 
@@ -115,7 +115,7 @@ GET /faq
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/faq
+$ curl -n https://production-room-api.herokuapp.com//faq
  -G \
   -d 
 ```
@@ -125,6 +125,67 @@ $ curl -n https://api.room-api.com/faq
 
 ```
 HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
+## <a name="resource-feedback">Feedback</a>
+
+Stability: `prototype`
+
+A feedback is _________
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *string* | the email of the user that sends the feedback | `"example"` |
+| **id** | *integer* | unique identifier of the feedback | `42` |
+| **name** | *string* | the name of the user that sends the feedback | `"example"` |
+| **negatives** | *string* | the negatives feedback from the user | `"example"` |
+| **positives** | *string* | the positives feedback from the user | `"example"` |
+
+### <a name="link-POST-feedback-/feedback">Feedback Create</a>
+
+Create a new feedback
+
+```
+POST /feedback
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *string* | the email of the user that sends the feedback | `"example"` |
+| **id** | *integer* | unique identifier of the feedback | `42` |
+| **name** | *string* | the name of the user that sends the feedback | `"example"` |
+| **negatives** | *string* | the negatives feedback from the user | `"example"` |
+| **positives** | *string* | the positives feedback from the user | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://production-room-api.herokuapp.com//feedback \
+  -d '{
+  "id": 42,
+  "name": "example",
+  "email": "example",
+  "positives": "example",
+  "negatives": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
 ```
 
 ```json
@@ -171,7 +232,7 @@ POST /auth/social_media/{social_media_provider}
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://api.room-api.com/auth/social_media/$SOCIAL_MEDIA_PROVIDER \
+$ curl -n -X POST https://production-room-api.herokuapp.com//auth/social_media/$SOCIAL_MEDIA_PROVIDER \
   -d '{
   "email": "username@example.com",
   "given_name": "example",
@@ -223,7 +284,7 @@ GET /user
 #### Curl Example
 
 ```bash
-$ curl -n https://api.room-api.com/user
+$ curl -n https://production-room-api.herokuapp.com//user
  -G \
   -d 
 ```

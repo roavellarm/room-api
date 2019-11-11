@@ -1,0 +1,66 @@
+---
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: Room API - Feedback
+description: A feedback is _________
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the feedback
+    readOnly: true
+    type: integer
+  name:
+    description: the name of the user that sends the feedback
+    type: string
+  email:
+    description: the email of the user that sends the feedback
+    type: string
+  positives:
+    description: the positives feedback from the user
+    type: string
+  negatives:
+    description: the negatives feedback from the user
+    type: string
+  identity:
+    anyOf:
+    - $ref: /schemata/feedback#/definitions/id
+links:
+
+- title: Create
+  description: Create a new feedback
+  href: "/feedback"
+  method: POST
+  rel: create
+  schema:
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "/schemata/feedback#/definitions/id"
+      name:
+        $ref: "/schemata/feedback#/definitions/name"
+      email:
+        $ref: "/schemata/feedback#/definitions/email"
+      positives:
+        $ref: "/schemata/feedback#/definitions/positives"
+      negatives:
+        $ref: "/schemata/feedback#/definitions/negatives"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: "/schemata/feedback"
+      - $ref: "/schemata/error"
+properties:
+  id:
+    $ref: /schemata/feedback#/definitions/id
+  name:
+    $ref: /schemata/feedback#/definitions/name
+  email:
+    $ref: /schemata/feedback#/definitions/email
+  positives:
+    $ref: /schemata/feedback#/definitions/positives
+  negatives:
+    $ref: /schemata/feedback#/definitions/negatives
+additionalProperties: false
+id: schemata/feedback

@@ -1,6 +1,6 @@
 ---
 $schema: http://json-schema.org/draft-04/hyper-schema
-title: New Rails API - User
+title: Room API - User
 description: A user
 stability: prototype
 type:

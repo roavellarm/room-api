@@ -1,5 +1,5 @@
 $schema: http://json-schema.org/draft-04/hyper-schema
-title: New Rails API - Admin Texts
+title: Room API - Admin Texts
 description: An admin text is a text for an admin area
 stability: prototype
 type:

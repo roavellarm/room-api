@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :user, only: %i[index]
   resources :org, only: %i[index]
+  resources :feedback, only: %i[create]
 end
