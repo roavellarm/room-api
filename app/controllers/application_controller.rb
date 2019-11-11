@@ -13,26 +13,26 @@ class ApplicationController < ActionController::API
 
   private
 
-  def not_found(exception)
-    render status: :not_found, json: {
-      id: 'not_found',
-      message: exception.message
-    }
-  end
+  # def not_found(exception)
+  #   render status: :not_found, json: {
+  #     id: 'not_found',
+  #     message: exception.message
+  #   }
+  # end
 
-  def forbidden(exception)
-    render status: :forbidden, json: {
-      id: 'forbidden',
-      message: exception.message
-    }
-  end
+  # def forbidden(exception)
+  #   render status: :forbidden, json: {
+  #     id: 'forbidden',
+  #     message: exception.message
+  #   }
+  # end
 
-  def unprocessable_entity(exception)
-    render status: :unprocessable_entity, json: {
-      id: 'unprocessable_entity',
-      message: exception.message
-    }
-  end
+  # def unprocessable_entity(exception)
+  #   render status: :unprocessable_entity, json: {
+  #     id: 'unprocessable_entity',
+  #     message: exception.message
+  #   }
+  # end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_up, keys: sign_up_keys
