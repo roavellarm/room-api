@@ -6,7 +6,7 @@
   "definitions": {
     "admin_text": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "New Rails API - Admin Texts",
+      "title": "Room API - Admin Texts",
       "description": "An admin text is a text for an admin area",
       "stability": "prototype",
       "type": [
@@ -104,7 +104,7 @@
     },
     "error": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "New Rails API - Error",
+      "title": "Room API - Error",
       "description": "An error represents a failed action in the API",
       "stability": "prototype",
       "strictProperties": true,
@@ -158,7 +158,7 @@
     },
     "faq": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "New Rails API - Faq",
+      "title": "Room API - Faq",
       "description": "A faq is a series of frequently asked questions paired with answers that provides basic information",
       "stability": "prototype",
       "type": [
@@ -237,9 +237,118 @@
       },
       "additionalProperties": false
     },
+    "feedback": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Room API - Feedback",
+      "description": "A feedback is _________",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the feedback",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "the name of the user that sends the feedback",
+          "type": [
+            "string"
+          ]
+        },
+        "email": {
+          "description": "the email of the user that sends the feedback",
+          "type": [
+            "string"
+          ]
+        },
+        "positives": {
+          "description": "the positives feedback from the user",
+          "type": [
+            "string"
+          ]
+        },
+        "negatives": {
+          "description": "the negatives feedback from the user",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/feedback/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "Create",
+          "description": "Create a new feedback",
+          "href": "/feedback",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/feedback/definitions/id"
+              },
+              "name": {
+                "$ref": "#/definitions/feedback/definitions/name"
+              },
+              "email": {
+                "$ref": "#/definitions/feedback/definitions/email"
+              },
+              "positives": {
+                "$ref": "#/definitions/feedback/definitions/positives"
+              },
+              "negatives": {
+                "$ref": "#/definitions/feedback/definitions/negatives"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/feedback"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/feedback/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/feedback/definitions/name"
+        },
+        "email": {
+          "$ref": "#/definitions/feedback/definitions/email"
+        },
+        "positives": {
+          "$ref": "#/definitions/feedback/definitions/positives"
+        },
+        "negatives": {
+          "$ref": "#/definitions/feedback/definitions/negatives"
+        }
+      },
+      "additionalProperties": false
+    },
     "social_media": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "New Rails API - Social Media",
+      "title": "Room API - Social Media",
       "description": "A Login with Social Media",
       "stability": "prototype",
       "type": [
@@ -376,7 +485,7 @@
     },
     "user": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
-      "title": "New Rails API - User",
+      "title": "Room API - User",
       "description": "A user",
       "stability": "prototype",
       "type": [
@@ -475,6 +584,9 @@
     },
     "faq": {
       "$ref": "#/definitions/faq"
+    },
+    "feedback": {
+      "$ref": "#/definitions/feedback"
     },
     "social_media": {
       "$ref": "#/definitions/social_media"

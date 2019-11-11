@@ -1,6 +1,6 @@
 ---
 $schema: http://json-schema.org/draft-04/hyper-schema
-title: New Rails API - Faq
+title: Room API - Faq
 description: A faq is a series of frequently asked questions paired with answers that provides basic information
 stability: prototype
 type:

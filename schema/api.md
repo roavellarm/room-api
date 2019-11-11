@@ -132,6 +132,67 @@ null
 ```
 
 
+## <a name="resource-feedback">Feedback</a>
+
+Stability: `prototype`
+
+A feedback is _________
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *string* | the email of the user that sends the feedback | `"example"` |
+| **id** | *integer* | unique identifier of the feedback | `42` |
+| **name** | *string* | the name of the user that sends the feedback | `"example"` |
+| **negatives** | *string* | the negatives feedback from the user | `"example"` |
+| **positives** | *string* | the positives feedback from the user | `"example"` |
+
+### <a name="link-POST-feedback-/feedback">Feedback Create</a>
+
+Create a new feedback
+
+```
+POST /feedback
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *string* | the email of the user that sends the feedback | `"example"` |
+| **id** | *integer* | unique identifier of the feedback | `42` |
+| **name** | *string* | the name of the user that sends the feedback | `"example"` |
+| **negatives** | *string* | the negatives feedback from the user | `"example"` |
+| **positives** | *string* | the positives feedback from the user | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://api.room-api.com/feedback \
+  -d '{
+  "id": 42,
+  "name": "example",
+  "email": "example",
+  "positives": "example",
+  "negatives": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-social_media">Social Media</a>
 
 Stability: `prototype`
