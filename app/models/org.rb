@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Org < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :description, presence: true
 
   has_many :rooms, dependent: :destroy
   has_many :user_orgs, dependent: :destroy
@@ -10,6 +10,7 @@ class Org < ApplicationRecord
   def as_json(_options = {})
     { id: id,
       name: name,
-      description: description }
+      description: description,
+      image: image }
   end
 end

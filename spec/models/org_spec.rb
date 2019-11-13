@@ -8,7 +8,8 @@ describe Org, type: :model do
   let(:expected_hash) do
     { id: org.id,
       name: org.name,
-      description: org.description }
+      description: org.description,
+      image: org.image }
   end
 
   describe '#as_json' do
@@ -18,4 +19,5 @@ describe Org, type: :model do
   end
 
   it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_presence_of :description }
 end

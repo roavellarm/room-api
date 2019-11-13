@@ -46,17 +46,20 @@ module ModelFactories
   def orange_org
     @orange_org ||= Org.find_or_create_by!(
       name: 'Orange Company',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      image: 'https://source.unsplash.com/random'
     )
   end
 
   def banana_org
     @banana_org ||= Org.find_or_create_by!(
       name: 'Banana Company',
-      description: 'Aliquam pharetra magna ut augue varius eget vitae est.'
+      description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
+      image: 'https://source.unsplash.com/random'
     )
   end
 
+  # Seed rooms
   def cafe_room
     @cafe_room ||= Room.find_or_create_by!(
       org: banana_org,
