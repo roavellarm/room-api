@@ -7,11 +7,13 @@ describe 'GET /org', type: :request do
     [
       { id: banana_org.id,
         name: 'Banana Company',
-        description: 'Aliquam pharetra magna ut augue varius eget vitae est.' },
+        description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
+        image: 'https://source.unsplash.com/random' },
       { id: orange_org.id,
         name: 'Orange Company',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing '\
-        'elit.' }
+        'elit.',
+        image: 'https://source.unsplash.com/random' }
     ].to_json
   end
 
