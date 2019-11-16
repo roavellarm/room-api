@@ -193,6 +193,92 @@ null
 ```
 
 
+## <a name="resource-org">Org</a>
+
+Stability: `prototype`
+
+An org is an entity such as a company or organization.
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **description** | *string* | a description of the org | `"example"` |
+| **id** | *integer* | unique identifier of the org | `42` |
+| **image** | *string* | an image such as an logo of the org | `"example"` |
+| **name** | *string* | the name of the org | `"example"` |
+
+### <a name="link-GET-org-/org">Org List</a>
+
+List of all the current user orgs
+
+```
+GET /org
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://production-room-api.herokuapp.com//org
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-POST-org-/org">Org Create</a>
+
+Create a new org
+
+```
+POST /org
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **description** | *string* | a description of the org | `"example"` |
+| **id** | *integer* | unique identifier of the org | `42` |
+| **image** | *string* | an image such as an logo of the org | `"example"` |
+| **name** | *string* | the name of the org | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://production-room-api.herokuapp.com//org \
+  -d '{
+  "id": 42,
+  "name": "example",
+  "description": "example",
+  "image": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
 ## <a name="resource-social_media">Social Media</a>
 
 Stability: `prototype`

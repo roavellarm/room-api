@@ -26,7 +26,6 @@ definitions:
     anyOf:
     - $ref: /schemata/feedback#/definitions/id
 links:
-
 - title: Create
   description: Create a new feedback
   href: "/feedback"
