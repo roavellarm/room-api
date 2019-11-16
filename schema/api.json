@@ -346,6 +346,133 @@
       },
       "additionalProperties": false
     },
+    "org": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Room API - Org",
+      "description": "An org is an entity such as a company or organization.",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the org",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "the name of the org",
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "description": "a description of the org",
+          "type": [
+            "string"
+          ]
+        },
+        "image": {
+          "description": "an image such as an logo of the org",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/org/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "List",
+          "description": "List of all the current user orgs",
+          "href": "/org",
+          "method": "GET",
+          "rel": "instances",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "type": [
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/org"
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Create",
+          "description": "Create a new org",
+          "href": "/org",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/org/definitions/id"
+              },
+              "name": {
+                "$ref": "#/definitions/org/definitions/name"
+              },
+              "description": {
+                "$ref": "#/definitions/org/definitions/description"
+              },
+              "image": {
+                "$ref": "#/definitions/org/definitions/image"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/org"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/org/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/org/definitions/name"
+        },
+        "description": {
+          "$ref": "#/definitions/org/definitions/description"
+        },
+        "image": {
+          "$ref": "#/definitions/org/definitions/image"
+        }
+      },
+      "additionalProperties": false
+    },
     "social_media": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Room API - Social Media",
@@ -587,6 +714,9 @@
     },
     "feedback": {
       "$ref": "#/definitions/feedback"
+    },
+    "org": {
+      "$ref": "#/definitions/org"
     },
     "social_media": {
       "$ref": "#/definitions/social_media"

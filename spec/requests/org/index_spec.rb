@@ -25,11 +25,11 @@ describe 'GET /org', type: :request do
     it { expect(JSON.parse(response.body).length).to eq(2) }
   end
 
-  # context 'with unpermitted params' do
-  #   let(:params) { { foo: 'bar' }.to_json }
+  context 'with unpermitted params' do
+    let(:params) { { foo: 'bar' }.to_json }
 
-  #   before { get '/org', params: params }
+    before { get '/org', params: params }
 
-  #   it { expect(response).to have_http_status(:bad_request) }
-  # end
+    it { expect(response).to have_http_status(:bad_request) }
+  end
 end

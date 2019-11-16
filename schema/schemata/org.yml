@@ -1,0 +1,74 @@
+---
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: Room API - Org
+description: An org is an entity such as a company or organization.
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the org
+    readOnly: true
+    type: integer
+  name:
+    description: the name of the org
+    type: string
+  description:
+    description: a description of the org
+    type: string
+  image:
+    description: an image such as an logo of the org
+    type: string
+  identity:
+    anyOf:
+    - $ref: /schemata/org#/definitions/id
+links:
+- title: List
+  description: List of all the current user orgs
+  href: "/org"
+  method: GET
+  rel: instances
+  schema:
+    additionalProperties: false
+    properties: {}
+    type:
+    - object
+  targetSchema:
+    anyOf:
+      - type: array
+        items:
+          "$ref": "/schemata/org"
+      - "$ref": "/schemata/error"
+- title: Create
+  description: Create a new org
+  href: "/org"
+  method: POST
+  rel: create
+  schema:
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "/schemata/org#/definitions/id"
+      name:
+        $ref: "/schemata/org#/definitions/name"
+      description:
+        $ref: "/schemata/org#/definitions/description"
+      image:
+        $ref: "/schemata/org#/definitions/image"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: "/schemata/org"
+      - $ref: "/schemata/error"
+properties:
+  id:
+    $ref: /schemata/org#/definitions/id
+  name:
+    $ref: /schemata/org#/definitions/name
+  description:
+    $ref: /schemata/org#/definitions/description
+  image:
+    $ref: /schemata/org#/definitions/image
+additionalProperties: false
+id: schemata/org

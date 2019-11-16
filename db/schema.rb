@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_174247) do
   end
 
   create_table "orgs", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 2019_11_13_174247) do
   create_table "user_orgs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "org_id"
-    t.boolean "owner"
-    t.boolean "member"
+    t.boolean "owner", null: false
+    t.boolean "member", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["org_id"], name: "index_user_orgs_on_org_id"

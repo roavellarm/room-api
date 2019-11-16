@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module ModelFactories
-  TABLES_TO_CLEAN = ['public.users', 'public.user_orgs',
-                     'public.orgs', 'public.rooms'].freeze
+  TABLES_TO_CLEAN = ['public.users', 'public.rooms', 'public.orgs',
+                     'public.user_orgs'].freeze
 
   def seed_database
     average_joe
