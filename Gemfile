@@ -12,7 +12,6 @@ gem 'devise-i18n', '~>  1.8.2'
 gem 'devise_token_auth', '~> 1.1.2'
 gem 'http'
 gem 'json_schema', '0.20.7' # DO NOT UPDATE THIS
-gem 'loofah', '>= 2.3.1'
 gem 'mjml-rails', '4.3.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'prmd', '~> 0.13'
