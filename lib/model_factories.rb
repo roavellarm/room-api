@@ -45,6 +45,7 @@ module ModelFactories
   # Seed Orgs
   def orange_org
     @orange_org ||= Org.find_or_create_by!(
+      user: average_joe,
       name: 'Orange Company',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       image: 'https://source.unsplash.com/random'
@@ -53,6 +54,7 @@ module ModelFactories
 
   def banana_org
     @banana_org ||= Org.find_or_create_by!(
+      user: average_fred,
       name: 'Banana Company',
       description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
       image: 'https://source.unsplash.com/random'

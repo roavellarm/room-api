@@ -11,8 +11,9 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :orgs
   has_many :user_orgs, dependent: :destroy
-  has_many :orgs, through: :user_orgs
+  has_many :orgs, source: :org, through: :user_orgs
 
   def as_json(_options = {})
     { id: id,

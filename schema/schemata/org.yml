@@ -10,6 +10,9 @@ definitions:
     description: unique identifier of the org
     readOnly: true
     type: integer
+  user_id:
+    description: the id of the user that created the org
+    type: integer
   name:
     description: the name of the org
     type: string
@@ -49,6 +52,8 @@ links:
     properties:
       id:
         $ref: "/schemata/org#/definitions/id"
+      user_id:
+        $ref: "/schemata/org#/definitions/user_id"
       name:
         $ref: "/schemata/org#/definitions/name"
       description:
@@ -64,6 +69,8 @@ links:
 properties:
   id:
     $ref: /schemata/org#/definitions/id
+  user_id:
+    $ref: /schemata/org#/definitions/user_id
   name:
     $ref: /schemata/org#/definitions/name
   description:
