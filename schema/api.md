@@ -207,6 +207,7 @@ An org is an entity such as a company or organization.
 | **id** | *integer* | unique identifier of the org | `42` |
 | **image** | *string* | an image such as an logo of the org | `"example"` |
 | **name** | *string* | the name of the org | `"example"` |
+| **user_id** | *integer* | the id of the user that created the org | `42` |
 
 ### <a name="link-GET-org-/org">Org List</a>
 
@@ -252,6 +253,7 @@ POST /org
 | **id** | *integer* | unique identifier of the org | `42` |
 | **image** | *string* | an image such as an logo of the org | `"example"` |
 | **name** | *string* | the name of the org | `"example"` |
+| **user_id** | *integer* | the id of the user that created the org | `42` |
 
 
 #### Curl Example
@@ -260,6 +262,7 @@ POST /org
 $ curl -n -X POST https://production-room-api.herokuapp.com//org \
   -d '{
   "id": 42,
+  "user_id": 42,
   "name": "example",
   "description": "example",
   "image": "example"
