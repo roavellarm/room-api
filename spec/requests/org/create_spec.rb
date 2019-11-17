@@ -5,6 +5,7 @@ require 'rails_helper'
 describe 'POST /org', type: :request do
   let(:params) do
     {
+      user_id: average_sally.id,
       name: 'Orange Organization',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       image: 'https://source.unsplash.com/random'
