@@ -17,6 +17,12 @@ class OrgController < ApplicationController
     render status: :created, json: org
   end
 
+  def show
+    org = Org.find(params[:id])
+    authorize org
+    render json: org
+  end
+
   private
 
   def permitted_params
