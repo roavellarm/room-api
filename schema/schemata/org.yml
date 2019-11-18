@@ -80,6 +80,20 @@ links:
     anyOf:
       - $ref: "/schemata/org"
       - $ref: "/schemata/error"
+- title: Info
+  description: Info for existing org.
+  href: "/org/{(%2Fschemata%2Forg%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: /schemata/org
+      - $ref: /schemata/error
 properties:
   id:
     $ref: /schemata/org#/definitions/id

@@ -283,6 +283,34 @@ HTTP/1.1 201 Created
 null
 ```
 
+### <a name="link-GET-org-/org/{(%23%2Fdefinitions%2Forg%2Fdefinitions%2Fidentity)}">Org Info</a>
+
+Info for existing org.
+
+```
+GET /org/{org_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://production-room-api.herokuapp.com//org/$ORG_ID
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-room">Room</a>
 
