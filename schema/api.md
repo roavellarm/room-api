@@ -206,7 +206,9 @@ An org is an entity such as a company or organization.
 | **description** | *string* | a description of the org | `"example"` |
 | **id** | *integer* | unique identifier of the org | `42` |
 | **image** | *string* | an image such as an logo of the org | `"example"` |
+| **members** | *nullable array* | the members list of the org | `null` |
 | **name** | *string* | the name of the org | `"example"` |
+| **rooms** | *nullable array* | the rooms list of the org | `null` |
 | **user_id** | *integer* | the id of the user that created the org | `42` |
 
 ### <a name="link-GET-org-/org">Org List</a>
@@ -266,6 +268,70 @@ $ curl -n -X POST https://production-room-api.herokuapp.com//org \
   "name": "example",
   "description": "example",
   "image": "example"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+
+## <a name="resource-room">Room</a>
+
+Stability: `prototype`
+
+An room is virtual place to communicate in an org.
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **avatar_image** | *string* | an avatar image of the room | `"example"` |
+| **background_image** | *string* | a background image of the room | `"example"` |
+| **id** | *integer* | unique identifier of the room | `42` |
+| **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
+| **subtitle** | *string* | the subtitle of the room | `"example"` |
+| **title** | *string* | the title of the room | `"example"` |
+
+### <a name="link-POST-room-/room">Room Create</a>
+
+Create a new room
+
+```
+POST /room
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **avatar_image** | *string* | an avatar image of the room | `"example"` |
+| **background_image** | *string* | a background image of the room | `"example"` |
+| **id** | *integer* | unique identifier of the room | `42` |
+| **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
+| **subtitle** | *string* | the subtitle of the room | `"example"` |
+| **title** | *string* | the title of the room | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X POST https://production-room-api.herokuapp.com//room \
+  -d '{
+  "id": 42,
+  "org_id": 42,
+  "title": "example",
+  "subtitle": "example",
+  "background_image": "example",
+  "avatar_image": "example"
 }' \
   -H "Content-Type: application/json"
 ```

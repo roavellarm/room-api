@@ -11,6 +11,6 @@ class ApplicationPolicy
   protected
 
   def current_user?
-    user.present?
+    true
   end
 end

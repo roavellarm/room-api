@@ -1,0 +1,72 @@
+---
+$schema: http://json-schema.room/draft-04/hyper-schema
+title: Room API - Room
+description: An room is virtual place to communicate in an org.
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the room
+    readOnly: true
+    type: integer
+  org_id:
+    description: the id of the org that the rooms belongs to
+    type: integer
+  title:
+    description: the title of the room
+    type: string
+  subtitle:
+    description: the subtitle of the room
+    type: string
+  background_image:
+    description: a background image of the room
+    type: string
+  avatar_image:
+    description: an avatar image of the room
+    type: string
+  identity:
+    anyOf:
+    - $ref: /schemata/room#/definitions/id
+links:
+- title: Create
+  description: Create a new room
+  href: "/room"
+  method: POST
+  rel: create
+  schema:
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "/schemata/room#/definitions/id"
+      org_id:
+        $ref: "/schemata/room#/definitions/org_id"
+      title:
+        $ref: "/schemata/room#/definitions/title"
+      subtitle:
+        $ref: "/schemata/room#/definitions/subtitle"
+      background_image:
+        $ref: "/schemata/room#/definitions/background_image"
+      avatar_image:
+        $ref: "/schemata/room#/definitions/avatar_image"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: "/schemata/room"
+      - $ref: "/schemata/error"
+properties:
+  id:
+    $ref: /schemata/room#/definitions/id
+  org_id:
+    $ref: /schemata/room#/definitions/org_id
+  title:
+    $ref: /schemata/room#/definitions/title
+  subtitle:
+    $ref: /schemata/room#/definitions/subtitle
+  background_image:
+    $ref: /schemata/room#/definitions/background_image
+  avatar_image:
+    $ref: /schemata/room#/definitions/avatar_image
+additionalProperties: false
+id: schemata/room

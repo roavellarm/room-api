@@ -9,10 +9,14 @@ class Org < ApplicationRecord
   has_many :members, source: :user, through: :user_orgs
 
   def as_json(_options = {})
-    { id: id,
+    {
+      id: id,
       user_id: user.id,
       name: name,
       description: description,
-      image: image }
+      image: image,
+      rooms: rooms,
+      members: members
+    }
   end
 end

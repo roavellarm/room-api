@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class OrgController < ApplicationController
-  before_action :authenticate_user!
-  # skip_before_action :authenticate_user!
-  # skip_after_action :verify_authorized
+  # before_action :authenticate_user!
+  skip_before_action :authenticate_user!
+  skip_after_action :verify_authorized
 
   def index
     authorize :org
