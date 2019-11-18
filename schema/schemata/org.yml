@@ -22,6 +22,20 @@ definitions:
   image:
     description: an image such as an logo of the org
     type: string
+  rooms:
+    description: the rooms list of the org
+    type:
+      - "null"
+      - array
+    targetSchema:
+      "$ref": "/schemata/room"
+  members:
+    description: the members list of the org
+    type:
+      - "null"
+      - array
+    targetSchema:
+      "$ref": "/schemata/user"
   identity:
     anyOf:
     - $ref: /schemata/org#/definitions/id
@@ -77,5 +91,9 @@ properties:
     $ref: /schemata/org#/definitions/description
   image:
     $ref: /schemata/org#/definitions/image
+  rooms:
+    $ref: /schemata/org#/definitions/rooms
+  members:
+    $ref: /schemata/org#/definitions/members
 additionalProperties: false
 id: schemata/org

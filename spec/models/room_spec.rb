@@ -8,7 +8,7 @@ describe Room, type: :model do
   let(:expected_hash) do
     {
       id: room.id,
-      org: room.org,
+      org_id: room.org.id,
       title: room.title,
       subtitle: room.subtitle,
       background_image: room.background_image,

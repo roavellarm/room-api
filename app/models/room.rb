@@ -7,7 +7,7 @@ class Room < ApplicationRecord
 
   def as_json(_options = {})
     { id: id,
-      org: org,
+      org_id: org.id,
       title: title,
       subtitle: subtitle,
       background_image: background_image,

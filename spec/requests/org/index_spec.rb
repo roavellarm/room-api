@@ -9,13 +9,24 @@ describe 'GET /org', type: :request do
         user_id: average_fred.id,
         name: 'Banana Company',
         description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
-        image: 'https://source.unsplash.com/random' },
+        image: 'https://source.unsplash.com/random',
+        rooms: [
+          { id: banana_org.rooms.first.id,
+            org_id: banana_org.id,
+            title: 'Cafe',
+            subtitle: 'Take a break and drink some coffe',
+            background_image: 'https://picsum.photos/600/400',
+            avatar_image: 'https://i.pravatar.cc/150' }
+        ],
+        members: [] },
       { id: orange_org.id,
         user_id: average_joe.id,
         name: 'Orange Company',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing '\
         'elit.',
-        image: 'https://source.unsplash.com/random' }
+        image: 'https://source.unsplash.com/random',
+        rooms: [],
+        members: [] }
     ].to_json
   end
 

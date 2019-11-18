@@ -10,7 +10,9 @@ describe Org, type: :model do
       user_id: org.user_id,
       name: org.name,
       description: org.description,
-      image: org.image }
+      image: org.image,
+      rooms: org.rooms,
+      members: org.members }
   end
 
   describe '#as_json' do
