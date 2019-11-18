@@ -484,6 +484,31 @@
               }
             ]
           }
+        },
+        {
+          "title": "Info",
+          "description": "Info for existing org.",
+          "href": "/org/{(%23%2Fdefinitions%2Forg%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/org"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
         }
       ],
       "properties": {
