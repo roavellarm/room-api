@@ -25,6 +25,9 @@ definitions:
   avatar_image:
     description: an avatar image of the room
     type: string
+  token:
+    description: a token of the room used for audio and video calls
+    type: string
   identity:
     anyOf:
     - $ref: /schemata/room#/definitions/id
@@ -68,5 +71,7 @@ properties:
     $ref: /schemata/room#/definitions/background_image
   avatar_image:
     $ref: /schemata/room#/definitions/avatar_image
+  token:
+    $ref: /schemata/room#/definitions/token
 additionalProperties: false
 id: schemata/room

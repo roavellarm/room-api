@@ -582,6 +582,12 @@
             "string"
           ]
         },
+        "token": {
+          "description": "a token of the room used for audio and video calls",
+          "type": [
+            "string"
+          ]
+        },
         "identity": {
           "anyOf": [
             {
@@ -653,6 +659,9 @@
         },
         "avatar_image": {
           "$ref": "#/definitions/room/definitions/avatar_image"
+        },
+        "token": {
+          "$ref": "#/definitions/room/definitions/token"
         }
       },
       "additionalProperties": false

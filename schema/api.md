@@ -328,6 +328,7 @@ An room is virtual place to communicate in an org.
 | **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
 | **subtitle** | *string* | the subtitle of the room | `"example"` |
 | **title** | *string* | the title of the room | `"example"` |
+| **token** | *string* | a token of the room used for audio and video calls | `"example"` |
 
 ### <a name="link-POST-room-/room">Room Create</a>
 
