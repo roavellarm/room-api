@@ -12,7 +12,8 @@ describe Room, type: :model do
       title: room.title,
       subtitle: room.subtitle,
       background_image: room.background_image,
-      avatar_image: room.avatar_image
+      avatar_image: room.avatar_image,
+      token: room.token
     }
   end
 

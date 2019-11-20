@@ -11,6 +11,7 @@ class Room < ApplicationRecord
       title: title,
       subtitle: subtitle,
       background_image: background_image,
-      avatar_image: avatar_image }
+      avatar_image: avatar_image,
+      token: token }
   end
 end
