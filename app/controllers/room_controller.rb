@@ -7,12 +7,21 @@ class RoomController < ApplicationController
     authorize :room
     room = Room.new(permitted_params)
     room.save!
-    render status: :created, json: room
+    result = generate_token(room)
+    if result[:success]
+      render status: :created, json: result[:room]
+    else
+      render status: :unprocessable_entity, json: result[:errors]
+    end
   end
 
   private
 
   def permitted_params
     params.require(:room).permit!
+  end
+
+  def generate_token(room)
+    GenerateRoomToken.execute(room: room, user: current_user)
   end
 end
