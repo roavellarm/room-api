@@ -11,12 +11,13 @@ describe 'GET /org', type: :request do
         description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
         image: 'https://source.unsplash.com/random',
         rooms: [
-          { id: banana_org.rooms.first.id,
-            org_id: banana_org.id,
+          { id: cafe_room.id,
+            org_id: cafe_room.org_id,
             title: 'Cafe',
             subtitle: 'Take a break and drink some coffe',
             background_image: 'https://picsum.photos/600/400',
-            avatar_image: 'https://i.pravatar.cc/150' }
+            avatar_image: 'https://i.pravatar.cc/150',
+            token: cafe_room.token }
         ],
         members: [] },
       { id: orange_org.id,
