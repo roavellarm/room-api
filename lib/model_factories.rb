@@ -69,18 +69,6 @@ module ModelFactories
       subtitle: 'Take a break and drink some coffe',
       background_image: 'https://picsum.photos/600/400',
       avatar_image: 'https://i.pravatar.cc/150'
-    ) do |u|
-      u.token = generate_token(banana_org, u)
-    end
-  end
-
-  def generate_token(org, room)
-    token = (
-      org.user.id.to_s + org.user.first_name.downcase +
-      org.user.last_name.downcase + org.id.to_s + org.name.downcase +
-      room.id.to_s + room.title
-    ).gsub(/\s+/, '').reverse!
-    puts token
-    token
+    )
   end
 end
