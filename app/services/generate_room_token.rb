@@ -26,20 +26,32 @@ class GenerateRoomToken
      @room.title).gsub(/\s+/, '').downcase.reverse!
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
   def write_number(digit)
-    return 'zero' if digit == '0'
-    return 'one' if digit == '1'
-    return 'two' if digit == '2'
-    return 'three' if digit == '3'
-    return 'four' if digit == '4'
-    return 'five' if digit == '5'
-    return 'six' if digit == '6'
-    return 'seven' if digit == '7'
-    return 'eight' if digit == '8'
-    return 'nine' if digit == '9'
+    case digit
+    when '0'
+      'zero'
+    when '1'
+      'one'
+    when '2'
+      'two'
+    when '3'
+      'three'
+    when '4'
+      'four'
+    when '5'
+      'five'
+    when '6'
+      'six'
+    when '7'
+      'seven'
+    when '8'
+      'eight'
+    when '9'
+      'nine'
+    end
   end
-  # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/AbcSize
 
   def number_name(num)
