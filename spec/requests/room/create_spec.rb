@@ -63,9 +63,34 @@ describe 'POST /room', type: :request do
 
   # rubocop:disable Metrics/AbcSize
   def generate_same_token
-    (current_user.id.to_s + current_user.first_name + current_user.last_name +
-      orange_org.id.to_s + orange_org.name + (orange_org.rooms.last.id + 2)
-      .to_s + 'Hall').gsub(/\s+/, '').downcase.reverse!
+    (number_name(current_user.id) + current_user.first_name +
+     current_user.last_name + number_name(orange_org.id) + orange_org.name +
+     number_name(orange_org.rooms.last.id + 2) + 'Hall')
+      .gsub(/\s+/, '').downcase.reverse!
   end
+
+  # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+  def write_number(digit)
+    return 'zero' if digit == '0'
+    return 'one' if digit == '1'
+    return 'two' if digit == '2'
+    return 'three' if digit == '3'
+    return 'four' if digit == '4'
+    return 'five' if digit == '5'
+    return 'six' if digit == '6'
+    return 'seven' if digit == '7'
+    return 'eight' if digit == '8'
+    return 'nine' if digit == '9'
+  end
+  # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/AbcSize
+
+  def number_name(num)
+    splitted_number = num.to_s.split('')
+    result = ''
+    splitted_number.each do |digit|
+      result += write_number(digit)
+    end
+    result
+  end
 end
