@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class GenerateRoomToken
-  def self.execute(**keywords, &block)
-    new(**keywords, &block).execute
+  def self.execute(*args, &block)
+    new(*args, &block).execute
   end
 
-  def initialize(params)
-    @user = params[:user]
-    @room = params[:room]
+  def initialize(room, current_user)
+    @user = current_user
+    @room = room
   end
 
   def execute
