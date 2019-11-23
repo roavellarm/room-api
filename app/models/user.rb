@@ -14,12 +14,15 @@ class User < ApplicationRecord
   has_many :orgs
   has_many :user_orgs, dependent: :destroy
   has_many :orgs, source: :org, through: :user_orgs
+  has_one_attached :avatar
 
   def as_json(_options = {})
     { id: id,
       first_name: first_name,
       last_name: last_name,
-      email: email }
+      # email: email }
+      email: email,
+      avatar: avatar }
   end
 
   def self.first_or_initialize_for_google(data)

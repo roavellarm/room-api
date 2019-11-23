@@ -38,6 +38,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :production do
+  gem 'aws-sdk-s3'
+end
+
 group :test do
   gem 'simplecov', '~> 0.17.0', require: false
 end
