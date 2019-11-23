@@ -18,10 +18,10 @@ class ApplicationController < ActionController::API
   end
 
   def sign_up_keys
-    %i[first_name last_name email password password_confirmation]
+    %i[first_name last_name email password password_confirmation avatar]
   end
 
   def account_update_keys
-    %i[first_name last_name email]
+    %i[first_name last_name email avatar]
   end
 end
