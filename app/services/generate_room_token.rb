@@ -25,34 +25,12 @@ class GenerateRoomToken
      number_name(@room.org_id) + @room.org.name + number_name(@room.id) +
      @room.title).gsub(/\s+/, '').downcase.reverse!
   end
-
-  # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
-  def write_number(digit)
-    case digit
-    when '0'
-      'zero'
-    when '1'
-      'one'
-    when '2'
-      'two'
-    when '3'
-      'three'
-    when '4'
-      'four'
-    when '5'
-      'five'
-    when '6'
-      'six'
-    when '7'
-      'seven'
-    when '8'
-      'eight'
-    when '9'
-      'nine'
-    end
-  end
-  # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/AbcSize
+
+  def write_number(digit)
+    numbers = %w[zero one two three four five six seven eight nine]
+    numbers[digit.to_i]
+  end
 
   def number_name(num)
     splitted_number = num.to_s.split('')

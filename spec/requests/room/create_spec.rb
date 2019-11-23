@@ -68,22 +68,12 @@ describe 'POST /room', type: :request do
      number_name(orange_org.rooms.last.id + 2) + 'Hall')
       .gsub(/\s+/, '').downcase.reverse!
   end
-
-  # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
-  def write_number(digit)
-    return 'zero' if digit == '0'
-    return 'one' if digit == '1'
-    return 'two' if digit == '2'
-    return 'three' if digit == '3'
-    return 'four' if digit == '4'
-    return 'five' if digit == '5'
-    return 'six' if digit == '6'
-    return 'seven' if digit == '7'
-    return 'eight' if digit == '8'
-    return 'nine' if digit == '9'
-  end
-  # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/AbcSize
+
+  def write_number(digit)
+    numbers = %w[zero one two three four five six seven eight nine]
+    numbers[digit.to_i]
+  end
 
   def number_name(num)
     splitted_number = num.to_s.split('')
