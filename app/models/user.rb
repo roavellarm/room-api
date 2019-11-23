@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :orgs
   has_many :user_orgs, dependent: :destroy
   has_many :orgs, source: :org, through: :user_orgs
+  has_one_attached :avatar
 
   def as_json(_options = {})
     { id: id,
