@@ -22,6 +22,6 @@ class RoomController < ApplicationController
   end
 
   def generate_token(room)
-    GenerateRoomToken.execute(room: room, user: current_user)
+    GenerateRoomToken.execute(room, current_user)
   end
 end
