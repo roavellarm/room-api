@@ -325,6 +325,7 @@ An room is virtual place to communicate in an org.
 | **avatar_image** | *string* | an avatar image of the room | `"example"` |
 | **background_image** | *string* | a background image of the room | `"example"` |
 | **id** | *integer* | unique identifier of the room | `42` |
+| **online_members** | *nullable array* | the list of users that are online in the specific room | `null` |
 | **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
 | **subtitle** | *string* | the subtitle of the room | `"example"` |
 | **title** | *string* | the title of the room | `"example"` |

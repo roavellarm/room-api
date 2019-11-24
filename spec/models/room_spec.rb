@@ -13,7 +13,8 @@ describe Room, type: :model do
       subtitle: room.subtitle,
       background_image: room.background_image,
       avatar_image: room.avatar_image,
-      token: room.token
+      token: room.token,
+      online_members: room.users
     }
   end
 
@@ -25,4 +26,5 @@ describe Room, type: :model do
 
   it { is_expected.to validate_presence_of :title }
   it { is_expected.to belong_to :org }
+  it { is_expected.to have_many :users }
 end

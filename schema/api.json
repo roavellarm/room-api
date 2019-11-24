@@ -588,6 +588,16 @@
             "string"
           ]
         },
+        "online_members": {
+          "description": "the list of users that are online in the specific room",
+          "type": [
+            "null",
+            "array"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/user"
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -662,6 +672,9 @@
         },
         "token": {
           "$ref": "#/definitions/room/definitions/token"
+        },
+        "online_members": {
+          "$ref": "#/definitions/room/definitions/online_members"
         }
       },
       "additionalProperties": false
@@ -836,6 +849,12 @@
           "format": "email",
           "type": [
             "string"
+          ]
+        },
+        "room_id": {
+          "description": "the id of the room that the user is logged in",
+          "type": [
+            "integer"
           ]
         },
         "identity": {

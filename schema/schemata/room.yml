@@ -28,6 +28,13 @@ definitions:
   token:
     description: a token of the room used for audio and video calls
     type: string
+  online_members:
+    description: the list of users that are online in the specific room
+    type:
+      - "null"
+      - array
+    targetSchema:
+      "$ref": "/schemata/user"
   identity:
     anyOf:
     - $ref: /schemata/room#/definitions/id
@@ -73,5 +80,7 @@ properties:
     $ref: /schemata/room#/definitions/avatar_image
   token:
     $ref: /schemata/room#/definitions/token
+  online_members:
+    $ref: /schemata/room#/definitions/online_members
 additionalProperties: false
 id: schemata/room
