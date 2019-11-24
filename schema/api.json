@@ -346,6 +346,48 @@
       },
       "additionalProperties": false
     },
+    "mood": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Room API - Mood",
+      "description": "A mood is the way the user feel at a particular time",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the mood",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "a name of the mood",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/mood/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/mood/definitions/id"
+        },
+        "name": {
+          "$ref": "#/definitions/mood/definitions/name"
+        }
+      },
+      "additionalProperties": false
+    },
     "org": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Room API - Org",
@@ -812,6 +854,9 @@
         },
         "email": {
           "$ref": "#/definitions/user/definitions/email"
+        },
+        "mood": {
+          "$ref": "#/definitions/user/definitions/mood"
         }
       },
       "additionalProperties": false
@@ -857,6 +902,16 @@
             "integer"
           ]
         },
+        "mood": {
+          "description": "the current user mood",
+          "type": [
+            "null",
+            "object"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/mood"
+          }
+        },
         "identity": {
           "anyOf": [
             {
@@ -895,6 +950,34 @@
               }
             ]
           }
+        },
+        {
+          "title": "Change mood",
+          "description": "Update the user mood",
+          "href": "/change_mood",
+          "method": "PUT",
+          "rel": "self",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "mood": {
+                "$ref": "#/definitions/mood/definitions/name"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
         }
       ],
       "properties": {
@@ -909,6 +992,9 @@
         },
         "email": {
           "$ref": "#/definitions/user/definitions/email"
+        },
+        "mood": {
+          "$ref": "#/definitions/user/definitions/mood"
         }
       },
       "additionalProperties": false
@@ -926,6 +1012,9 @@
     },
     "feedback": {
       "$ref": "#/definitions/feedback"
+    },
+    "mood": {
+      "$ref": "#/definitions/mood"
     },
     "org": {
       "$ref": "#/definitions/org"

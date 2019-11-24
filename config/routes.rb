@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :room, only: %i[create]
 
   put '/room-access', to: 'room#access'
+  put '/user/change_mood', to: 'user#change_mood'
 end

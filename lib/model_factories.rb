@@ -82,4 +82,9 @@ module ModelFactories
       avatar_image: 'https://i.pravatar.cc/150'
     )
   end
+
+  # Seed moods
+  def tired_mood
+    @tired_mood ||= Mood.find_or_create_by!(name: 'tired')
+  end
 end

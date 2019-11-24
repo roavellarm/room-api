@@ -7,4 +7,11 @@ class UserController < ApplicationController
     authorize :user
     render status: :ok, json: User.all.order(first_name: :asc, last_name: :asc)
   end
+
+  def change_mood
+    new_mood = Mood.find_by(name: params[:mood])
+    authorize :user
+    current_user.update!(mood: new_mood)
+    response status: :ok
+  end
 end

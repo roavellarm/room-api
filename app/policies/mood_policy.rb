@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-class UserPolicy < ApplicationPolicy
-  def index?
-    current_user?
-  end
-
+class MoodPolicy < ApplicationPolicy
   def change_mood?
     current_user?
   end

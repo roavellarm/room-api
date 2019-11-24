@@ -7,22 +7,26 @@ describe 'GET /user', type: :request do
     [{ id: current_user.id,
        first_name: 'Current',
        last_name: 'User',
-       email: 'current.user@email.com' },
+       email: 'current.user@email.com',
+       mood: current_user.mood },
 
      { id: average_fred.id,
        first_name: 'Fred',
        last_name: 'Average',
-       email: 'fred@email.com' },
+       email: 'fred@email.com',
+       mood: average_fred.mood },
 
      { id: average_joe.id,
        first_name: 'Joe',
        last_name: 'Average',
-       email: 'joe@email.com' },
+       email: 'joe@email.com',
+       mood: average_joe.mood },
 
      { id: average_sally.id,
        first_name: 'Sally',
        last_name: 'Average',
-       email: 'sally@email.com' }].to_json
+       email: 'sally@email.com',
+       mood: average_sally.mood }].to_json
   end
 
   context 'without params' do

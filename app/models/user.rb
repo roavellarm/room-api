@@ -21,7 +21,8 @@ class User < ApplicationRecord
     { id: id,
       first_name: first_name,
       last_name: last_name,
-      email: email }
+      email: email,
+      mood_id: mood_id }
   end
 
   def self.first_or_initialize_for_google(data)
