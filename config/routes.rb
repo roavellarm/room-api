@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :org, only: %i[index create show]
   resources :feedback, only: %i[create]
   resources :room, only: %i[create]
+  resources :chat, only: %i[create show]
 
   put '/room-access', to: 'room#access'
 end

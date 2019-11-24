@@ -14,7 +14,6 @@ describe Chat, type: :model do
   it { is_expected.to validate_presence_of :message }
   it { is_expected.to validate_presence_of :room }
   it { is_expected.to validate_presence_of :user }
-  # it { expect(chat.sorting).to eq(0) }
 
   # describe '#as_json' do
   #   subject { chat.as_json }
