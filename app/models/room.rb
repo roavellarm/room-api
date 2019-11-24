@@ -5,6 +5,7 @@ class Room < ApplicationRecord
 
   belongs_to :org
   has_many :users
+  has_many :messages
 
   def as_json(_options = {})
     { id: id,
