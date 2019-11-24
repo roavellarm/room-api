@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :user_orgs, dependent: :destroy
   has_many :orgs, source: :org, through: :user_orgs
   belongs_to :room, optional: true
+  belongs_to :mood, optional: true
 
   def as_json(_options = {})
     { id: id,
