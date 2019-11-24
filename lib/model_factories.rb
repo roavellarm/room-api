@@ -11,6 +11,7 @@ module ModelFactories
     orange_org
     banana_org
     cafe_room
+    music_room
   end
 
   def teardown
@@ -67,6 +68,16 @@ module ModelFactories
       org: banana_org,
       title: 'Cafe',
       subtitle: 'Take a break and drink some coffe',
+      background_image: 'https://picsum.photos/600/400',
+      avatar_image: 'https://i.pravatar.cc/150'
+    )
+  end
+
+  def music_room
+    @music_room ||= Room.find_or_create_by!(
+      org: banana_org,
+      title: 'Music room',
+      subtitle: 'Relax and listen to some music',
       background_image: 'https://picsum.photos/600/400',
       avatar_image: 'https://i.pravatar.cc/150'
     )
