@@ -5,7 +5,7 @@ class RoomController < ApplicationController
 
   def create
     authorize :room
-    room = Room.new(permitted_params)
+    room = Room.new(room_params)
     room.save!
     result = generate_token(room)
     if result[:success]
@@ -15,10 +15,22 @@ class RoomController < ApplicationController
     end
   end
 
+  def access
+    new_room = Room.find(params[:id])
+    authorize new_room
+    remove_user_from_actual_room if current_user.room_id?
+    new_room.users.append(current_user)
+    render json: new_room
+  end
+
   private
 
-  def permitted_params
+  def room_params
     params.require(:room).permit!
+  end
+
+  def remove_user_from_actual_room
+    Room.find(current_user.room_id).users.delete(current_user)
   end
 
   def generate_token(room)
