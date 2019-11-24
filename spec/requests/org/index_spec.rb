@@ -27,7 +27,16 @@ describe 'GET /org', type: :request do
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing '\
         'elit.',
         image: 'https://source.unsplash.com/random',
-        rooms: [],
+        rooms: [
+          { id: music_room.id,
+            org_id: music_room.org_id,
+            title: 'Music room',
+            subtitle: 'Relax and listen to some music',
+            background_image: 'https://picsum.photos/600/400',
+            avatar_image: 'https://i.pravatar.cc/150',
+            token: music_room.token,
+            online_members: [] }
+        ],
         members: [] }
     ].to_json
   end

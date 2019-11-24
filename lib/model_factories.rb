@@ -75,7 +75,7 @@ module ModelFactories
 
   def music_room
     @music_room ||= Room.find_or_create_by!(
-      org: banana_org,
+      org: orange_org,
       title: 'Music room',
       subtitle: 'Relax and listen to some music',
       background_image: 'https://picsum.photos/600/400',
