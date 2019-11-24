@@ -16,7 +16,8 @@ describe 'GET /org/:id', type: :request do
           subtitle: 'Take a break and drink some coffe',
           background_image: 'https://picsum.photos/600/400',
           avatar_image: 'https://i.pravatar.cc/150',
-          token: cafe_room.token }
+          token: cafe_room.token,
+          online_members: [] }
       ],
       members: [] }.to_json
   end
