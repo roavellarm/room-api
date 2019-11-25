@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :room, only: %i[create]
   resources :chat, only: %i[create show]
 
+  put '/user/change_mood', to: 'user#change_mood'
   put '/room_access', to: 'room#access'
 end

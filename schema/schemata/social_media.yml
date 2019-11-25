@@ -86,5 +86,7 @@ properties:
     $ref: /schemata/user#/definitions/last_name
   email:
     $ref: /schemata/user#/definitions/email
+  mood:
+    $ref: /schemata/user#/definitions/mood
 additionalProperties: false
 id: schemata/social_media

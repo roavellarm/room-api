@@ -4,6 +4,7 @@ module ModelFactories
   TABLES_TO_CLEAN = ['public.users', 'public.rooms', 'public.orgs',
                      'public.user_orgs'].freeze
 
+  # rubocop:disable Metrics/MethodLength
   def seed_database
     average_joe
     average_fred
@@ -12,10 +13,12 @@ module ModelFactories
     banana_org
     cafe_room
     music_room
+    tired_mood
     chat_message
     chat_message2
     chat_message3
   end
+  # rubocop:enable Metrics/MethodLength
 
   def teardown
     TABLES_TO_CLEAN.each do |table|
@@ -86,6 +89,12 @@ module ModelFactories
     )
   end
 
+  # Seed moods
+  def tired_mood
+    @tired_mood ||= Mood.find_or_create_by!(name: 'tired')
+  end
+
+  # Seed chat messages
   def chat_message
     @chat_message ||= Chat.find_or_create_by!(
       user: average_fred, room: cafe_room, message: 'Hey guys!'

@@ -16,12 +16,14 @@ class User < ApplicationRecord
   has_many :user_orgs, dependent: :destroy
   has_many :orgs, source: :org, through: :user_orgs
   belongs_to :room, optional: true
+  belongs_to :mood, optional: true
 
   def as_json(_options = {})
     { id: id,
       first_name: first_name,
       last_name: last_name,
-      email: email }
+      email: email,
+      mood: mood }
   end
 
   def self.first_or_initialize_for_google(data)

@@ -193,6 +193,20 @@ null
 ```
 
 
+## <a name="resource-mood">Mood</a>
+
+Stability: `prototype`
+
+A mood is the way the user feel at a particular time
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of the mood | `42` |
+| **name** | *string* | a name of the mood | `"example"` |
+
+
 ## <a name="resource-org">Org</a>
 
 Stability: `prototype`
@@ -392,6 +406,7 @@ A Login with Social Media
 | **[first_name](#resource-user)** | *string* | first name of the user | `"example"` |
 | **[id](#resource-user)** | *integer* | unique identifier of the user | `42` |
 | **[last_name](#resource-user)** | *string* | last name of the user | `"example"` |
+| **[mood](#resource-user)** | *nullable object* | the current user mood | `null` |
 
 ### <a name="link-POST-social_media-/auth/social_media/{(%23%2Fdefinitions%2Fsocial_media%2Fdefinitions%2Fprovider)}">Social Media Create</a>
 
@@ -456,6 +471,7 @@ A user
 | **first_name** | *string* | first name of the user | `"example"` |
 | **id** | *integer* | unique identifier of the user | `42` |
 | **last_name** | *string* | last name of the user | `"example"` |
+| **mood** | *nullable object* | the current user mood | `null` |
 
 ### <a name="link-GET-user-/user">User List</a>
 
@@ -472,6 +488,42 @@ GET /user
 $ curl -n https://production-room-api.herokuapp.com//user
  -G \
   -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### <a name="link-PUT-user-/change_mood">User Change mood</a>
+
+Update the user mood
+
+```
+PUT /change_mood
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **mood** | *string* | a name of the mood | `"example"` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://production-room-api.herokuapp.com//change_mood \
+  -d '{
+  "mood": "example"
+}' \
+  -H "Content-Type: application/json"
 ```
 
 

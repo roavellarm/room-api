@@ -1,0 +1,26 @@
+---
+$schema: http://json-schema.org/draft-04/hyper-schema
+title: Room API - Mood
+description: A mood is the way the user feel at a particular time
+stability: prototype
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of the mood
+    readOnly: true
+    type: integer
+  name:
+    description: a name of the mood
+    type: string
+  identity:
+    anyOf:
+    - $ref: /schemata/mood#/definitions/id
+links: []
+properties:
+  id:
+    $ref: /schemata/mood#/definitions/id
+  name:
+    $ref: /schemata/mood#/definitions/name
+additionalProperties: false
+id: schemata/mood

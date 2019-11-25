@@ -20,7 +20,8 @@ describe 'POST /auth - Sign Up', type: :request do
     { id: User.last.id,
       first_name: 'John',
       last_name: 'Connor',
-      email: 'john.connor@email.com' }
+      email: 'john.connor@email.com',
+      mood: User.last.mood }
   end
 
   context 'with valid email' do

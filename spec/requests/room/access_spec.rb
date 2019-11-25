@@ -22,7 +22,8 @@ describe 'PUT /room_access', type: :request do
           { id: current_user.id,
             first_name: 'Current',
             last_name: 'User',
-            email: 'current.user@email.com' }
+            email: 'current.user@email.com',
+            mood: current_user.mood }
         ] }.to_json
     end
 

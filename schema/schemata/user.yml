@@ -24,6 +24,13 @@ definitions:
   room_id:
     description: the id of the room that the user is logged in
     type: integer
+  mood:
+    description: the current user mood
+    type:
+      - "null"
+      - object
+    targetSchema:
+      "$ref": "/schemata/mood"
   identity:
     anyOf:
     - $ref: /schemata/user#/definitions/id
@@ -44,6 +51,23 @@ links:
         items:
           "$ref": "/schemata/user"
       - "$ref": "/schemata/error"
+
+- title: Change mood
+  description: Update the user mood
+  href: "/change_mood"
+  method: PUT
+  rel: self
+  schema:
+    additionalProperties: false
+    properties:
+      mood:
+        $ref: "/schemata/mood#/definitions/name"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - "$ref": "/schemata/user"
+      - "$ref": "/schemata/error"
 properties:
   id:
     $ref: /schemata/user#/definitions/id
@@ -53,5 +77,7 @@ properties:
     $ref: /schemata/user#/definitions/last_name
   email:
     $ref: /schemata/user#/definitions/email
+  mood:
+    $ref: /schemata/user#/definitions/mood
 additionalProperties: false
 id: schemata/user
