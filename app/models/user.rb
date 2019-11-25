@@ -23,7 +23,7 @@ class User < ApplicationRecord
       first_name: first_name,
       last_name: last_name,
       email: email,
-      mood_id: mood_id }
+      mood: mood }
   end
 
   def self.first_or_initialize_for_google(data)
