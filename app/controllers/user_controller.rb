@@ -11,7 +11,8 @@ class UserController < ApplicationController
   def change_mood
     new_mood = Mood.find_by(name: params[:mood])
     authorize :user
-    current_user.update!(mood: new_mood)
-    response status: :ok
+    user = current_user
+    user.update!(mood: new_mood)
+    render status: :ok, json: user
   end
 end
