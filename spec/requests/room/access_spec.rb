@@ -2,10 +2,8 @@
 
 require 'rails_helper'
 
-describe 'PUT /room-access', type: :request do
-  let(:headers) { {} }
-
-  let(:params) { { id: room.id, user_id: user.id } }
+describe 'PUT /room_access', type: :request do
+  let(:params) { { id: room.id } }
 
   let(:user) { current_user }
 
@@ -31,7 +29,7 @@ describe 'PUT /room-access', type: :request do
 
     before do
       music_room.users.append(current_user)
-      put '/room-access', params: params.to_json, headers: headers
+      put '/room_access', params: params.to_json
     end
 
     it { expect(response).to have_http_status(:ok) }
@@ -41,14 +39,18 @@ describe 'PUT /room-access', type: :request do
     #   it { expect(response).to have_http_status(:forbidden) }
   end
 
-  # context 'without current_user' do
-  #   let(:headers) { { 'access-token': nil } }
+  context 'without current_user' do
+    let(:headers) { { 'access-token': nil } }
 
-  #   it { expect(response).to have_http_status(:unauthorized) }
-  # end
+    before { put '/room_access', params: params.to_json, headers: headers }
+
+    it { expect(response).to have_http_status(:unauthorized) }
+  end
 
   # context 'with bad parameters' do
   #   let(:params) { { foo: 'bar' } }
+
+  #   before { put '/room_access', params: params.to_json }
 
   #   it { expect(response).to have_http_status(:bad_request) }
   # end
