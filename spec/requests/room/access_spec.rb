@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe 'PUT /room-access', type: :request do
+describe 'PUT /room_access', type: :request do
   let(:headers) { {} }
 
-  let(:params) { { id: room.id, user_id: user.id } }
+  let(:params) { { id: room.id } }
 
   let(:user) { current_user }
 
@@ -30,7 +30,7 @@ describe 'PUT /room-access', type: :request do
 
     before do
       music_room.users.append(current_user)
-      put '/room-access', params: params.to_json, headers: headers
+      put '/room_access', params: params.to_json, headers: headers
     end
 
     it { expect(response).to have_http_status(:ok) }
