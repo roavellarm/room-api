@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :messages
   has_many :orgs
   has_many :user_orgs, dependent: :destroy
   has_many :orgs, source: :org, through: :user_orgs

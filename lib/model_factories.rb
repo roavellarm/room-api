@@ -12,6 +12,9 @@ module ModelFactories
     banana_org
     cafe_room
     music_room
+    chat_message
+    chat_message2
+    chat_message3
   end
 
   def teardown
@@ -80,6 +83,24 @@ module ModelFactories
       subtitle: 'Relax and listen to some music',
       background_image: 'https://picsum.photos/600/400',
       avatar_image: 'https://i.pravatar.cc/150'
+    )
+  end
+
+  def chat_message
+    @chat_message ||= Chat.find_or_create_by!(
+      user: average_fred, room: cafe_room, message: 'Hey guys!'
+    )
+  end
+
+  def chat_message2
+    @chat_message2 ||= Chat.find_or_create_by!(
+      user: average_joe, room: cafe_room, message: "What's up, Fred?"
+    )
+  end
+
+  def chat_message3
+    @chat_message3 ||= Chat.find_or_create_by!(
+      user: average_sally, room: cafe_room, message: 'Hey, Fred!'
     )
   end
 end
