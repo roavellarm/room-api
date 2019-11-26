@@ -1,4 +1,4 @@
-# Room Api
+# Room API
 
 [![CircleCI](https://circleci.com/gh/roavellarm/room-api.svg?style=svg)](https://circleci.com/gh/roavellarm/room-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a8ff1d48acb81616a666/maintainability)](https://codeclimate.com/github/roavellarm/room-api/maintainability)
