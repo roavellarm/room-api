@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
   post 'auth/social_media/:provider', to: 'social_media#auth'
 
-  resources :user, only: %i[index]
+  resources :user, only: %i[index show]
   resources :org, only: %i[index create show]
   resources :feedback, only: %i[create]
   resources :room, only: %i[create]

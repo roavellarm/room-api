@@ -18,16 +18,22 @@ definitions:
     type: string
   subtitle:
     description: the subtitle of the room
-    type: string
+    type:
+      - "null"
+      - string
   background_image:
     description: a background image of the room
-    type: string
+    type:
+      - "null"
+      - string
   avatar_image:
     description: an avatar image of the room
     type: string
   token:
     description: a token of the room used for audio and video calls
-    type: string
+    type:
+      - "null"
+      - string
   online_members:
     description: the list of users that are online in the specific room
     type:
@@ -59,6 +65,22 @@ links:
         $ref: "/schemata/room#/definitions/background_image"
       avatar_image:
         $ref: "/schemata/room#/definitions/avatar_image"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: "/schemata/room"
+      - $ref: "/schemata/error"
+- title: Room access
+  description: It updates the current room that the user is in
+  href: "/room_access"
+  method: PUT
+  rel: self
+  schema:
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "/schemata/room#/definitions/id"
     type:
       - object
   targetSchema:

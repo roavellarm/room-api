@@ -8,6 +8,12 @@ class UserController < ApplicationController
     render status: :ok, json: User.all.order(first_name: :asc, last_name: :asc)
   end
 
+  def show
+    user = User.find(params[:id])
+    authorize user
+    render json: user
+  end
+
   def change_mood
     new_mood = Mood.find_by(name: params[:mood])
     authorize :user

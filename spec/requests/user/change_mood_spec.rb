@@ -11,6 +11,7 @@ describe 'PUT /user/change_mood', type: :request do
       first_name: 'Current',
       last_name: 'User',
       email: 'current.user@email.com',
+      image: nil,
       mood: {
         id: tired_mood.id,
         name: 'tired'
@@ -25,5 +26,5 @@ describe 'PUT /user/change_mood', type: :request do
 
   it { expect(response).to have_http_status(:ok) }
   it { expect(response.body).to eq(expected_hash) }
-  it { expect(JSON.parse(response.body).length).to eq(5) }
+  it { expect(JSON.parse(response.body).length).to eq(6) }
 end

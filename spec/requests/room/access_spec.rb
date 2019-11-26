@@ -23,6 +23,7 @@ describe 'PUT /room_access', type: :request do
             first_name: 'Current',
             last_name: 'User',
             email: 'current.user@email.com',
+            image: nil,
             mood: current_user.mood }
         ] }.to_json
     end
@@ -47,11 +48,11 @@ describe 'PUT /room_access', type: :request do
     it { expect(response).to have_http_status(:unauthorized) }
   end
 
-  # context 'with bad parameters' do
-  #   let(:params) { { foo: 'bar' } }
+  context 'with bad parameters' do
+    let(:params) { { foo: 'bar' } }
 
-  #   before { put '/room_access', params: params.to_json }
+    before { put '/room_access', params: params.to_json }
 
-  #   it { expect(response).to have_http_status(:bad_request) }
-  # end
+    it { expect(response).to have_http_status(:bad_request) }
+  end
 end
