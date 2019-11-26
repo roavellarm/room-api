@@ -952,6 +952,31 @@
           }
         },
         {
+          "title": "Info",
+          "description": "Is shows the info for existing user.",
+          "href": "/user/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        },
+        {
           "title": "Change mood",
           "description": "Update the user mood",
           "href": "/change_mood",

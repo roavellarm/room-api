@@ -51,7 +51,20 @@ links:
         items:
           "$ref": "/schemata/user"
       - "$ref": "/schemata/error"
-
+- title: Info
+  description: Is shows the info for existing user.
+  href: "/user/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: /schemata/user
+      - $ref: /schemata/error
 - title: Change mood
   description: Update the user mood
   href: "/change_mood"

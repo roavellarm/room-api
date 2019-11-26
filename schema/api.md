@@ -501,6 +501,34 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-GET-user-/user/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Info</a>
+
+Is shows the info for existing user.
+
+```
+GET /user/{user_id}
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n https://production-room-api.herokuapp.com//user/$USER_ID
+ -G \
+  -d 
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 ### <a name="link-PUT-user-/change_mood">User Change mood</a>
 
 Update the user mood
