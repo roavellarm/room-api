@@ -9,6 +9,7 @@ describe 'GET /user/:id', type: :request do
       first_name: 'Joe',
       last_name: 'Average',
       email: 'joe@email.com',
+      image: nil,
       mood: nil
     }.to_json
   end
