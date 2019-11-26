@@ -21,6 +21,14 @@ class OrgController < ApplicationController
     render json: org
   end
 
+  def add_member
+    authorize :org
+    user = User.find_by(email: params[:email])
+    org = Org.find(params[:id])
+    org.members.append(user)
+    render status: :ok, json: org
+  end
+
   private
 
   def permitted_params
