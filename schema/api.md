@@ -325,6 +325,44 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-PUT-org-/org/{(%23%2Fdefinitions%2Forg%2Fdefinitions%2Fidentity)}/add_member">Org Add member</a>
+
+It adds the user as a member of the organization
+
+```
+PUT /org/{org_id}/add_member
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **email** | *email* | the email of the user | `"username@example.com"` |
+| **id** | *integer* | unique identifier of the org | `42` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://production-room-api.herokuapp.com//org/$ORG_ID/add_member \
+  -d '{
+  "id": 42,
+  "email": "username@example.com"
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 
 ## <a name="resource-room">Room</a>
 
