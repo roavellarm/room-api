@@ -21,6 +21,11 @@ definitions:
     description: the email of the user
     format: email
     type: string
+  image:
+    description: the image of the user
+    type:
+      - "null"
+      - string
   room_id:
     description: the id of the room that the user is logged in
     type: integer
@@ -90,6 +95,8 @@ properties:
     $ref: /schemata/user#/definitions/last_name
   email:
     $ref: /schemata/user#/definitions/email
+  image:
+    $ref: /schemata/user#/definitions/image
   mood:
     $ref: /schemata/user#/definitions/mood
 additionalProperties: false

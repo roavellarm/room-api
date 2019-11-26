@@ -337,13 +337,13 @@ An room is virtual place to communicate in an org.
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **avatar_image** | *string* | an avatar image of the room | `"example"` |
-| **background_image** | *string* | a background image of the room | `"example"` |
+| **background_image** | *nullable string* | a background image of the room | `null` |
 | **id** | *integer* | unique identifier of the room | `42` |
 | **online_members** | *nullable array* | the list of users that are online in the specific room | `null` |
 | **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
-| **subtitle** | *string* | the subtitle of the room | `"example"` |
+| **subtitle** | *nullable string* | the subtitle of the room | `null` |
 | **title** | *string* | the title of the room | `"example"` |
-| **token** | *string* | a token of the room used for audio and video calls | `"example"` |
+| **token** | *nullable string* | a token of the room used for audio and video calls | `null` |
 
 ### <a name="link-POST-room-/room">Room Create</a>
 
@@ -358,10 +358,10 @@ POST /room
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **avatar_image** | *string* | an avatar image of the room | `"example"` |
-| **background_image** | *string* | a background image of the room | `"example"` |
+| **background_image** | *nullable string* | a background image of the room | `null` |
 | **id** | *integer* | unique identifier of the room | `42` |
 | **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
-| **subtitle** | *string* | the subtitle of the room | `"example"` |
+| **subtitle** | *nullable string* | the subtitle of the room | `null` |
 | **title** | *string* | the title of the room | `"example"` |
 
 
@@ -373,8 +373,8 @@ $ curl -n -X POST https://production-room-api.herokuapp.com//room \
   "id": 42,
   "org_id": 42,
   "title": "example",
-  "subtitle": "example",
-  "background_image": "example",
+  "subtitle": null,
+  "background_image": null,
   "avatar_image": "example"
 }' \
   -H "Content-Type: application/json"
@@ -385,6 +385,42 @@ $ curl -n -X POST https://production-room-api.herokuapp.com//room \
 
 ```
 HTTP/1.1 201 Created
+```
+
+```json
+null
+```
+
+### <a name="link-PUT-room-/room_access">Room Room access</a>
+
+It updates the current room that the user is in
+
+```
+PUT /room_access
+```
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **id** | *integer* | unique identifier of the room | `42` |
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://production-room-api.herokuapp.com//room_access \
+  -d '{
+  "id": 42
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
 ```
 
 ```json
@@ -405,6 +441,7 @@ A Login with Social Media
 | **[email](#resource-user)** | *email* | the email of the user | `"username@example.com"` |
 | **[first_name](#resource-user)** | *string* | first name of the user | `"example"` |
 | **[id](#resource-user)** | *integer* | unique identifier of the user | `42` |
+| **[image](#resource-user)** | *nullable string* | the image of the user | `null` |
 | **[last_name](#resource-user)** | *string* | last name of the user | `"example"` |
 | **[mood](#resource-user)** | *nullable object* | the current user mood | `null` |
 
@@ -470,6 +507,7 @@ A user
 | **email** | *email* | the email of the user | `"username@example.com"` |
 | **first_name** | *string* | first name of the user | `"example"` |
 | **id** | *integer* | unique identifier of the user | `42` |
+| **image** | *nullable string* | the image of the user | `null` |
 | **last_name** | *string* | last name of the user | `"example"` |
 | **mood** | *nullable object* | the current user mood | `null` |
 

@@ -609,12 +609,14 @@
         "subtitle": {
           "description": "the subtitle of the room",
           "type": [
+            "null",
             "string"
           ]
         },
         "background_image": {
           "description": "a background image of the room",
           "type": [
+            "null",
             "string"
           ]
         },
@@ -627,6 +629,7 @@
         "token": {
           "description": "a token of the room used for audio and video calls",
           "type": [
+            "null",
             "string"
           ]
         },
@@ -675,6 +678,34 @@
               },
               "avatar_image": {
                 "$ref": "#/definitions/room/definitions/avatar_image"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/room"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Room access",
+          "description": "It updates the current room that the user is in",
+          "href": "/room_access",
+          "method": "PUT",
+          "rel": "self",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/room/definitions/id"
               }
             },
             "type": [
@@ -855,6 +886,9 @@
         "email": {
           "$ref": "#/definitions/user/definitions/email"
         },
+        "image": {
+          "$ref": "#/definitions/user/definitions/image"
+        },
         "mood": {
           "$ref": "#/definitions/user/definitions/mood"
         }
@@ -893,6 +927,13 @@
           "description": "the email of the user",
           "format": "email",
           "type": [
+            "string"
+          ]
+        },
+        "image": {
+          "description": "the image of the user",
+          "type": [
+            "null",
             "string"
           ]
         },
@@ -1017,6 +1058,9 @@
         },
         "email": {
           "$ref": "#/definitions/user/definitions/email"
+        },
+        "image": {
+          "$ref": "#/definitions/user/definitions/image"
         },
         "mood": {
           "$ref": "#/definitions/user/definitions/mood"
