@@ -12,4 +12,8 @@ class OrgPolicy < ApplicationPolicy
   def show?
     current_user?
   end
+
+  def add_member?
+    user.present?
+  end
 end
