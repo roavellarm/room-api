@@ -70,16 +70,27 @@ links:
     anyOf:
       - $ref: /schemata/user
       - $ref: /schemata/error
-- title: Change mood
-  description: Update the user mood
-  href: "/change_mood"
+- title: Update
+  description: Update the user info
+  href: "/user/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}"
   method: PUT
   rel: self
   schema:
     additionalProperties: false
     properties:
+      first_name:
+        $ref: /schemata/user#/definitions/first_name
+      last_name:
+        $ref: /schemata/user#/definitions/last_name
+      email:
+        $ref: /schemata/user#/definitions/email
+      image:
+        $ref: /schemata/user#/definitions/image
       mood:
-        $ref: "/schemata/mood#/definitions/name"
+        description: the mood of the user
+        type:
+          - "null"
+          - string
     type:
       - object
   targetSchema:

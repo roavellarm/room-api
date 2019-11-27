@@ -8,9 +8,24 @@ class ApplicationController < ActionController::API
   before_action :authenticate_user!, unless: :devise_controller?
 
   after_action :verify_authorized, unless: :devise_controller?
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from Pundit::NotAuthorizedError, with: :forbidden
 
   private
+
+  def not_found(exception)
+    render status: :not_found, json: {
+      id: 'not_found',
+      message: exception.message
+    }
+  end
+
+  def forbidden(exception)
+    render status: :forbidden, json: {
+      id: 'forbidden',
+      message: exception.message
+    }
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_up, keys: sign_up_keys
@@ -22,6 +37,6 @@ class ApplicationController < ActionController::API
   end
 
   def account_update_keys
-    %i[first_name last_name email]
+    %i[first_name last_name email image mood_id]
   end
 end

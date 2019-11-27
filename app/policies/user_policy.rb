@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
     current_user?
   end
 
-  def change_mood?
-    current_user?
+  def update?
+    user.id == record.id
   end
 end
