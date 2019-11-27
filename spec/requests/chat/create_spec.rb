@@ -16,11 +16,11 @@ describe 'POST /chat', type: :request do
     it { expect(response).to have_http_status(:created) }
   end
 
-  # context 'with incorrect params' do
-  #   let(:params) { { foo: 'bar' }.to_json }
+  context 'with incorrect params' do
+    let(:params) { { foo: 'bar' }.to_json }
 
-  #   before { post '/chat', params: params }
+    before { post '/chat', params: params }
 
-  #   it { expect(response).to have_http_status(:bad_request) }
-  # end
+    it { expect(response).to have_http_status(:bad_request) }
+  end
 end
