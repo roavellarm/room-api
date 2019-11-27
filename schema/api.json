@@ -551,6 +551,37 @@
               }
             ]
           }
+        },
+        {
+          "title": "Add member",
+          "description": "It adds the user as a member of the organization",
+          "href": "/org/{(%23%2Fdefinitions%2Forg%2Fdefinitions%2Fidentity)}/add_member",
+          "method": "PUT",
+          "rel": "self",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/org/definitions/id"
+              },
+              "email": {
+                "$ref": "#/definitions/user/definitions/email"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/org"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
         }
       ],
       "properties": {

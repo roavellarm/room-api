@@ -94,6 +94,24 @@ links:
     anyOf:
       - $ref: /schemata/org
       - $ref: /schemata/error
+- title: Add member
+  description: It adds the user as a member of the organization
+  href: "/org/{(%2Fschemata%2Forg%23%2Fdefinitions%2Fidentity)}/add_member"
+  method: PUT
+  rel: self
+  schema:
+    additionalProperties: false
+    properties:
+      id:
+        $ref: "/schemata/org#/definitions/id"
+      email:
+        $ref: "/schemata/user#/definitions/email"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - $ref: "/schemata/org"
+      - $ref: "/schemata/error"
 properties:
   id:
     $ref: /schemata/org#/definitions/id

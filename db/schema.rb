@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_212348) do
+ActiveRecord::Schema.define(version: 2019_11_26_215429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,8 +80,6 @@ ActiveRecord::Schema.define(version: 2019_11_24_212348) do
   create_table "user_orgs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "org_id"
-    t.boolean "owner", null: false
-    t.boolean "member", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["org_id"], name: "index_user_orgs_on_org_id"
