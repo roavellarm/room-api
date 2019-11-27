@@ -605,27 +605,35 @@ HTTP/1.1 200 OK
 null
 ```
 
-### <a name="link-PUT-user-/change_mood">User Change mood</a>
+### <a name="link-PUT-user-/user/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}">User Update</a>
 
-Update the user mood
+Update the user info
 
 ```
-PUT /change_mood
+PUT /user/{user_id}
 ```
 
 #### Optional Parameters
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **mood** | *string* | a name of the mood | `"example"` |
+| **email** | *email* | the email of the user | `"username@example.com"` |
+| **first_name** | *string* | first name of the user | `"example"` |
+| **image** | *nullable string* | the image of the user | `null` |
+| **last_name** | *string* | last name of the user | `"example"` |
+| **mood** | *nullable string* | the mood of the user | `null` |
 
 
 #### Curl Example
 
 ```bash
-$ curl -n -X PUT https://production-room-api.herokuapp.com//change_mood \
+$ curl -n -X PUT https://production-room-api.herokuapp.com//user/$USER_ID \
   -d '{
-  "mood": "example"
+  "first_name": "example",
+  "last_name": "example",
+  "email": "username@example.com",
+  "image": null,
+  "mood": null
 }' \
   -H "Content-Type: application/json"
 ```

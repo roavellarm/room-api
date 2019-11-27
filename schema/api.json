@@ -1049,16 +1049,32 @@
           }
         },
         {
-          "title": "Change mood",
-          "description": "Update the user mood",
-          "href": "/change_mood",
+          "title": "Update",
+          "description": "Update the user info",
+          "href": "/user/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}",
           "method": "PUT",
           "rel": "self",
           "schema": {
             "additionalProperties": false,
             "properties": {
+              "first_name": {
+                "$ref": "#/definitions/user/definitions/first_name"
+              },
+              "last_name": {
+                "$ref": "#/definitions/user/definitions/last_name"
+              },
+              "email": {
+                "$ref": "#/definitions/user/definitions/email"
+              },
+              "image": {
+                "$ref": "#/definitions/user/definitions/image"
+              },
               "mood": {
-                "$ref": "#/definitions/mood/definitions/name"
+                "description": "the mood of the user",
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
             },
             "type": [
