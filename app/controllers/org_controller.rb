@@ -4,9 +4,9 @@ class OrgController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    authorize :org
     user = current_user
     orgs = user.orgs.concat(user.orgs_as_member).order(name: :asc)
-    authorize orgs
     render status: :ok, json: orgs
   end
 
