@@ -5,7 +5,9 @@ class OrgController < ApplicationController
 
   def index
     authorize :org
-    render status: :ok, json: Org.all.order(name: :asc)
+    user = current_user
+    orgs = user.orgs.concat(user.orgs_as_member).order(name: :asc)
+    render status: :ok, json: orgs
   end
 
   def create

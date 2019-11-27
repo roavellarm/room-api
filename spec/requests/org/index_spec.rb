@@ -5,44 +5,85 @@ require 'rails_helper'
 describe 'GET /org', type: :request do
   let(:expected_hash) do
     [
-      { id: banana_org.id,
-        user_id: average_fred.id,
-        name: 'Banana Company',
-        description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
-        image: 'https://source.unsplash.com/random',
+      {
+        id: org.id,
+        user_id: user.id,
+        name: 'Foo Organization',
+        description: 'Lorem ipsum dolor sit amet',
+        image: 'org_background_image',
         rooms: [
-          { id: cafe_room.id,
-            org_id: cafe_room.org_id,
-            title: 'Cafe',
-            subtitle: 'Take a break and drink some coffe',
-            background_image: 'https://picsum.photos/600/400',
-            avatar_image: 'https://i.pravatar.cc/150',
-            token: cafe_room.token,
-            online_members: [] }
+          {
+            id: room.id,
+            org_id: org.id,
+            title: 'Bar',
+            subtitle: 'consectetur adipiscing elit.',
+            background_image: 'background_image',
+            avatar_image: 'avatar_image',
+            token: nil,
+            online_members: []
+          }
         ],
-        members: [] },
-      { id: orange_org.id,
-        user_id: average_joe.id,
+        members: []
+      },
+      {
+        id: orange_org.id,
+        user_id: user.id,
         name: 'Orange Company',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing '\
-        'elit.',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         image: 'https://source.unsplash.com/random',
         rooms: [
-          { id: music_room.id,
-            org_id: music_room.org_id,
+          {
+            id: music_room.id,
+            org_id: orange_org.id,
             title: 'Music room',
             subtitle: 'Relax and listen to some music',
             background_image: 'https://picsum.photos/600/400',
             avatar_image: 'https://i.pravatar.cc/150',
-            token: music_room.token,
-            online_members: [] }
+            token: nil,
+            online_members: []
+          }
         ],
-        members: [] }
+        members: [
+          {
+            id: user.id,
+            first_name: 'Current',
+            last_name: 'User',
+            email: 'current.user@email.com',
+            image: nil,
+            mood: nil
+          }
+        ]
+      }
     ].to_json
   end
 
+  let(:user) { current_user }
+
+  let(:org) do
+    Org.create!(
+      user_id: user.id,
+      name: 'Foo Organization',
+      description: 'Lorem ipsum dolor sit amet',
+      image: 'org_background_image'
+    )
+  end
+
+  let(:room) do
+    Room.create!(
+      org_id: org.id,
+      title: 'Bar',
+      subtitle: 'consectetur adipiscing elit.',
+      background_image: 'background_image',
+      avatar_image: 'avatar_image'
+    )
+  end
+
   context 'without params' do
-    before { get '/org' }
+    before do
+      room
+      orange_org.members.append(user)
+      get '/org'
+    end
 
     it { expect(response).to have_http_status :ok }
     it { expect(response.body).to eq(expected_hash) }

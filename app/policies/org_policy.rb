@@ -2,7 +2,7 @@
 
 class OrgPolicy < ApplicationPolicy
   def index?
-    current_user?
+    user.present?
   end
 
   def create?
