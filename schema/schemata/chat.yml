@@ -20,8 +20,10 @@ definitions:
     description: the message that the user is sending
     type: string
   created_at:
-    description: a date and time that the message was sended
-    type: string
+    description: the message creation date and time
+    format: date-time
+    type:
+      - string
   identity:
     anyOf:
     - $ref: /schemata/chat#/definitions/id
@@ -38,8 +40,46 @@ links:
       - object
   targetSchema:
     anyOf:
-      - $ref: /schemata/chat
+      - properties:
+          id:
+            $ref: /schemata/chat#/definitions/id
+          user_email:
+            $ref: /schemata/user#/definitions/email
+          user_name:
+            $ref: /schemata/user#/definitions/first_name
+          message:
+            $ref: /schemata/chat#/definitions/message
+          created_at:
+            $ref: /schemata/chat#/definitions/created_at
       - $ref: /schemata/error
+- title: Create
+  description: Create a new chat message
+  href: "/chat"
+  method: POST
+  rel: create
+  schema:
+    additionalProperties: false
+    properties:
+      room_id:
+        $ref: "/schemata/room#/definitions/id"
+      message:
+        $ref: "/schemata/chat#/definitions/message"
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - properties:
+          id:
+            $ref: /schemata/chat#/definitions/id
+          user_email:
+            $ref: /schemata/user#/definitions/email
+          user_name:
+            $ref: /schemata/user#/definitions/first_name
+          message:
+            $ref: /schemata/chat#/definitions/message
+          created_at:
+            $ref: /schemata/chat#/definitions/created_at
+      - $ref: "/schemata/error"
 properties:
   id:
     $ref: /schemata/chat#/definitions/id

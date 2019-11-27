@@ -102,6 +102,164 @@
         }
       }
     },
+    "chat": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Room API - Chat",
+      "description": "An chat is a virtual space to talk about something with someone.",
+      "stability": "prototype",
+      "type": [
+        "object"
+      ],
+      "definitions": {
+        "id": {
+          "description": "unique identifier of the chat",
+          "readOnly": true,
+          "type": [
+            "integer"
+          ]
+        },
+        "room_id": {
+          "description": "the id of the room that the chat belongs to",
+          "type": [
+            "integer"
+          ]
+        },
+        "user_id": {
+          "description": "the id of the user that is sending a message through the chat",
+          "type": [
+            "integer"
+          ]
+        },
+        "message": {
+          "description": "the message that the user is sending",
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "description": "the message creation date and time",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/chat/definitions/id"
+            }
+          ]
+        }
+      },
+      "links": [
+        {
+          "title": "Info",
+          "description": "Info for existing chat.",
+          "href": "/chat/{(%23%2Fdefinitions%2Fchat%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/chat/definitions/id"
+                  },
+                  "user_email": {
+                    "$ref": "#/definitions/user/definitions/email"
+                  },
+                  "user_name": {
+                    "$ref": "#/definitions/user/definitions/first_name"
+                  },
+                  "message": {
+                    "$ref": "#/definitions/chat/definitions/message"
+                  },
+                  "created_at": {
+                    "$ref": "#/definitions/chat/definitions/created_at"
+                  }
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Create",
+          "description": "Create a new chat message",
+          "href": "/chat",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "room_id": {
+                "$ref": "#/definitions/room/definitions/id"
+              },
+              "message": {
+                "$ref": "#/definitions/chat/definitions/message"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/chat/definitions/id"
+                  },
+                  "user_email": {
+                    "$ref": "#/definitions/user/definitions/email"
+                  },
+                  "user_name": {
+                    "$ref": "#/definitions/user/definitions/first_name"
+                  },
+                  "message": {
+                    "$ref": "#/definitions/chat/definitions/message"
+                  },
+                  "created_at": {
+                    "$ref": "#/definitions/chat/definitions/created_at"
+                  }
+                }
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/chat/definitions/id"
+        },
+        "room_id": {
+          "$ref": "#/definitions/chat/definitions/room_id"
+        },
+        "user_id": {
+          "$ref": "#/definitions/chat/definitions/user_id"
+        },
+        "message": {
+          "$ref": "#/definitions/chat/definitions/message"
+        },
+        "created_at": {
+          "$ref": "#/definitions/chat/definitions/created_at"
+        }
+      },
+      "additionalProperties": false
+    },
     "error": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Room API - Error",
@@ -1120,6 +1278,9 @@
     "admin_text": {
       "$ref": "#/definitions/admin_text"
     },
+    "chat": {
+      "$ref": "#/definitions/chat"
+    },
     "error": {
       "$ref": "#/definitions/error"
     },
@@ -1153,5 +1314,5 @@
       "rel": "self"
     }
   ],
-  "title": "Room Api - API"
+  "title": "Room - API"
 }
