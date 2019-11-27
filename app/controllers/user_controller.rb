@@ -14,11 +14,22 @@ class UserController < ApplicationController
     render json: user
   end
 
-  def change_mood
-    new_mood = Mood.find_by(name: params[:mood])
-    authorize :user
-    user = current_user
-    user.update!(mood: new_mood)
+  def update
+    user = User.find(params[:id])
+    authorize user
+    user.update!(user_params) if params[:user].present?
+    update_mood(user) if params[:mood].present?
     render status: :ok, json: user
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit!
+  end
+
+  def update_mood(user)
+    new_mood = Mood.find_by(name: params[:mood])
+    user.update!(mood_id: new_mood.id)
   end
 end
