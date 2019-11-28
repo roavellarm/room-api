@@ -16,7 +16,7 @@ class RoomController < ApplicationController
   end
 
   def access
-  # TODO: Fazer teste para não entrar na mesma sala
+    # TODO: Fazer teste para não entrar na mesma sala
     new_room = Room.find(params[:id])
     authorize new_room
     remove_user_from_actual_room if current_user.room_id?
