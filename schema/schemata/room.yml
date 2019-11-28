@@ -28,7 +28,9 @@ definitions:
       - string
   avatar_image:
     description: an avatar image of the room
-    type: string
+    type:
+      - "null"
+      - string
   token:
     description: a token of the room used for audio and video calls
     type:

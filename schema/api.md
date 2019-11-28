@@ -457,7 +457,7 @@ An room is virtual place to communicate in an org.
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **avatar_image** | *string* | an avatar image of the room | `"example"` |
+| **avatar_image** | *nullable string* | an avatar image of the room | `null` |
 | **background_image** | *nullable string* | a background image of the room | `null` |
 | **id** | *integer* | unique identifier of the room | `42` |
 | **online_members** | *nullable array* | the list of users that are online in the specific room | `null` |
@@ -478,7 +478,7 @@ POST /room
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **avatar_image** | *string* | an avatar image of the room | `"example"` |
+| **avatar_image** | *nullable string* | an avatar image of the room | `null` |
 | **background_image** | *nullable string* | a background image of the room | `null` |
 | **id** | *integer* | unique identifier of the room | `42` |
 | **org_id** | *integer* | the id of the org that the rooms belongs to | `42` |
@@ -496,7 +496,7 @@ $ curl -n -X POST https://production-room-api.herokuapp.com//room \
   "title": "example",
   "subtitle": null,
   "background_image": null,
-  "avatar_image": "example"
+  "avatar_image": null
 }' \
   -H "Content-Type: application/json"
 ```
