@@ -812,6 +812,7 @@
         "avatar_image": {
           "description": "an avatar image of the room",
           "type": [
+            "null",
             "string"
           ]
         },
