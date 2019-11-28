@@ -18,10 +18,14 @@ definitions:
     type: string
   description:
     description: a description of the org
-    type: string
+    type:
+      - "null"
+      - string
   image:
     description: an image such as an logo of the org
-    type: string
+    type:
+      - "null"
+      - string
   rooms:
     description: the rooms list of the org
     type:

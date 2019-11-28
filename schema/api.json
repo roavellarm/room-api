@@ -577,12 +577,14 @@
         "description": {
           "description": "a description of the org",
           "type": [
+            "null",
             "string"
           ]
         },
         "image": {
           "description": "an image such as an logo of the org",
           "type": [
+            "null",
             "string"
           ]
         },

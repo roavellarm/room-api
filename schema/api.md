@@ -300,9 +300,9 @@ An org is an entity such as a company or organization.
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **description** | *string* | a description of the org | `"example"` |
+| **description** | *nullable string* | a description of the org | `null` |
 | **id** | *integer* | unique identifier of the org | `42` |
-| **image** | *string* | an image such as an logo of the org | `"example"` |
+| **image** | *nullable string* | an image such as an logo of the org | `null` |
 | **members** | *nullable array* | the members list of the org | `null` |
 | **name** | *string* | the name of the org | `"example"` |
 | **rooms** | *nullable array* | the rooms list of the org | `null` |
@@ -348,9 +348,9 @@ POST /org
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **description** | *string* | a description of the org | `"example"` |
+| **description** | *nullable string* | a description of the org | `null` |
 | **id** | *integer* | unique identifier of the org | `42` |
-| **image** | *string* | an image such as an logo of the org | `"example"` |
+| **image** | *nullable string* | an image such as an logo of the org | `null` |
 | **name** | *string* | the name of the org | `"example"` |
 | **user_id** | *integer* | the id of the user that created the org | `42` |
 
@@ -363,8 +363,8 @@ $ curl -n -X POST https://production-room-api.herokuapp.com//org \
   "id": 42,
   "user_id": 42,
   "name": "example",
-  "description": "example",
-  "image": "example"
+  "description": null,
+  "image": null
 }' \
   -H "Content-Type: application/json"
 ```
