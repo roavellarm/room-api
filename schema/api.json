@@ -1132,6 +1132,7 @@
         "room_id": {
           "description": "the id of the room that the user is logged in",
           "type": [
+            "null",
             "integer"
           ]
         },

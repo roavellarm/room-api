@@ -28,7 +28,9 @@ definitions:
       - string
   room_id:
     description: the id of the room that the user is logged in
-    type: integer
+    type:
+      - "null"
+      - integer
   mood:
     description: the current user mood
     type:
