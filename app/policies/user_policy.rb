@@ -12,8 +12,4 @@ class UserPolicy < ApplicationPolicy
   def update?
     current_user?
   end
-
-  def leave_rooms?
-    current_user?
-  end
 end
