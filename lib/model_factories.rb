@@ -4,21 +4,16 @@ module ModelFactories
   TABLES_TO_CLEAN = ['public.users', 'public.rooms', 'public.orgs',
                      'public.user_orgs'].freeze
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def seed_database
-    average_joe
-    average_fred
-    average_sally
-    orange_org
-    banana_org
-    cafe_room
-    music_room
-    tired_mood
-    chat_message
-    chat_message2
-    chat_message3
+    [
+      average_joe, average_fred, average_sally, orange_org, banana_org,
+      cafe_room, music_room, tired_mood, happy_mood, sad_mood, chat_message,
+      chat_message2, chat_message3, status_available, status_busy,
+      status_on_call
+    ]
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   def teardown
     TABLES_TO_CLEAN.each do |table|
@@ -41,57 +36,55 @@ module ModelFactories
 
   def add_user(first_name)
     User.find_or_create_by!(
-      email: "#{first_name.downcase}@email.com",
-      first_name: first_name,
+      email: "#{first_name.downcase}@email.com", first_name: first_name,
       last_name: 'Average'
-    ) do |u|
-      u.password = "#{first_name.downcase}password"
-    end
+    ) { |u| u.password = "#{first_name.downcase}password" }
   end
 
   # Seed Orgs
   def orange_org
-    @orange_org ||= Org.find_or_create_by!(
-      user: average_joe,
-      name: 'Orange Company',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: 'https://source.unsplash.com/random'
-    )
+    @orange_org ||= add_org(average_joe, 'Orange Company', 'Lorem ipsum dolor '\
+      'sit amet, consectetur adipiscing elit.')
   end
 
   def banana_org
-    @banana_org ||= Org.find_or_create_by!(
-      user: average_fred,
-      name: 'Banana Company',
-      description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
-      image: 'https://source.unsplash.com/random'
-    )
+    @banana_org ||= add_org(average_fred, 'Banana Company', 'Aliquam pharetra'\
+      ' magna ut augue varius eget vitae est.')
+  end
+
+  def add_org(user, name, description)
+    Org.find_or_create_by!(user: user, name: name, description: description,
+                           image: 'https://source.unsplash.com/random')
   end
 
   # Seed rooms
   def cafe_room
-    @cafe_room ||= Room.find_or_create_by!(
-      org: banana_org,
-      title: 'Cafe',
-      subtitle: 'Take a break and drink some coffe',
-      background_image: 'https://picsum.photos/600/400',
-      avatar_image: 'https://i.pravatar.cc/150'
-    )
+    @cafe_room ||= add_room(banana_org, 'Cafe', 'Take a break and drink some '\
+      'coffe')
   end
 
   def music_room
-    @music_room ||= Room.find_or_create_by!(
-      org: orange_org,
-      title: 'Music room',
-      subtitle: 'Relax and listen to some music',
-      background_image: 'https://picsum.photos/600/400',
-      avatar_image: 'https://i.pravatar.cc/150'
-    )
+    @music_room ||= add_room(orange_org, 'Music room', 'Relax and listen to '\
+      'some music')
+  end
+
+  def add_room(org, title, subtitle)
+    Room.find_or_create_by!(org: org, title: title, subtitle: subtitle,
+                            background_image: 'https://picsum.photos/600/400',
+                            avatar_image: 'https://i.pravatar.cc/150')
   end
 
   # Seed moods
   def tired_mood
     @tired_mood ||= Mood.find_or_create_by!(name: 'tired')
+  end
+
+  def happy_mood
+    @happy_mood ||= Mood.find_or_create_by!(name: 'happy')
+  end
+
+  def sad_mood
+    @sad_mood ||= Mood.find_or_create_by!(name: 'sad')
   end
 
   # Seed chat messages
@@ -111,5 +104,17 @@ module ModelFactories
     @chat_message3 ||= Chat.find_or_create_by!(
       user: average_sally, room: cafe_room, message: 'Hey, Fred!'
     )
+  end
+
+  def status_available
+    @status_available ||= Status.find_or_create_by!(status: 'available')
+  end
+
+  def status_busy
+    @status_busy ||= Status.find_or_create_by!(status: 'busy')
+  end
+
+  def status_on_call
+    @status_on_call ||= Status.find_or_create_by!(status: 'on_call')
   end
 end
