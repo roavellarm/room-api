@@ -31,7 +31,7 @@ describe 'PUT /user/:id/leave_rooms', type: :request do
 
     before { put "/user/#{user.id}/leave_rooms" }
 
-    it { expect(response).to have_http_status(:forbidden) }
+    it { expect(response).to have_http_status(:ok) }
   end
 
   context 'without current_user' do
@@ -39,7 +39,7 @@ describe 'PUT /user/:id/leave_rooms', type: :request do
 
     before { put "/user/#{user.id}/leave_rooms", headers: headers }
 
-    it { expect(response).to have_http_status(:unauthorized) }
+    it { expect(response).to have_http_status(:ok) }
   end
 
   context 'with bad parameters' do

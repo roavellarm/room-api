@@ -6,11 +6,11 @@ class OrgPolicy < ApplicationPolicy
   end
 
   def create?
-    current_user?
+    true
   end
 
   def show?
-    current_user?
+    true
   end
 
   def add_member?

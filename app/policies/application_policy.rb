@@ -11,6 +11,6 @@ class ApplicationPolicy
   protected
 
   def current_user?
-    true
+    user.id == record.id
   end
 end

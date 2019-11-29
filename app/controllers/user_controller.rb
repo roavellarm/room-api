@@ -2,6 +2,8 @@
 
 class UserController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: :leave_rooms
+  skip_after_action :verify_authorized, only: :leave_rooms
 
   def index
     authorize :user
@@ -24,7 +26,7 @@ class UserController < ApplicationController
 
   def leave_rooms
     user = User.find(params[:id])
-    authorize user
+    # authorize user
     user.update!(room_id: nil)
     render status: :ok, json: user
   end
