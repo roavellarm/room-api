@@ -25,6 +25,7 @@ describe User, type: :model do
   it { is_expected.to have_many :orgs }
   it { is_expected.to have_many :user_orgs }
   it { is_expected.to have_many(:orgs_as_member).through(:user_orgs) }
+  it { is_expected.to belong_to(:status).required(false) }
   it { is_expected.to belong_to(:room).required(false) }
   it { is_expected.to belong_to(:mood).required(false) }
   it { is_expected.to validate_presence_of :email }
