@@ -26,7 +26,6 @@ class UserController < ApplicationController
 
   def leave_rooms
     user = User.find(params[:id])
-    # authorize user
     user.update!(room_id: nil)
     render status: :ok, json: user
   end
