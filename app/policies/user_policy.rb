@@ -2,11 +2,11 @@
 
 class UserPolicy < ApplicationPolicy
   def index?
-    current_user?
+    true
   end
 
   def show?
-    current_user?
+    true
   end
 
   def update?
@@ -14,6 +14,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def leave_rooms?
-    user.id == record.id
+    true
   end
 end

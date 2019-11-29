@@ -2,10 +2,10 @@
 
 class RoomPolicy < ApplicationPolicy
   def create?
-    current_user?
+    true
   end
 
   def access?
-    current_user?
+    true
   end
 end

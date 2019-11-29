@@ -2,10 +2,10 @@
 
 class ChatPolicy < ApplicationPolicy
   def create?
-    current_user?
+    true
   end
 
   def show?
-    current_user?
+    true
   end
 end
