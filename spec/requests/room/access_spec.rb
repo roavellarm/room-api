@@ -29,15 +29,15 @@ describe 'PUT /room_access', type: :request do
     end
 
     before do
-      music_room.users.append(current_user)
+      current_user.update!(room: music_room)
       put '/room_access', params: params.to_json
     end
 
     it { expect(response).to have_http_status(:ok) }
     it { expect(response.body).to eq(expected_body) }
     it { expect(expected_body).to eq(room.reload.as_json.to_json) }
-    #   context 'when the current_user is ...' do ...
-    #   it { expect(response).to have_http_status(:forbidden) }
+    it { expect(music_room.users).to eq([]) }
+    it { expect(music_room.as_json[:online_members]).to eq([]) }
   end
 
   context 'without current_user' do
