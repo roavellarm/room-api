@@ -907,6 +907,11 @@
           "targetSchema": {
             "anyOf": [
               {
+                "type": [
+                  "null"
+                ]
+              },
+              {
                 "$ref": "#/definitions/room"
               },
               {
@@ -1238,6 +1243,31 @@
                   "string"
                 ]
               }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "targetSchema": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/user"
+              },
+              {
+                "$ref": "#/definitions/error"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Leave rooms",
+          "description": "It takes out the user all rooms",
+          "href": "/user/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}/leave_rooms",
+          "method": "PUT",
+          "rel": "self",
+          "schema": {
+            "strictProperties": true,
+            "properties": {
             },
             "type": [
               "object"

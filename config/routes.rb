@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   put '/room_access', to: 'room#access'
   put '/org/:id/add_member', to: 'org#add_member'
+  put '/user/:id/leave_rooms', to: 'user#leave_rooms'
 end

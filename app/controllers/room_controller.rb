@@ -16,11 +16,11 @@ class RoomController < ApplicationController
   end
 
   def access
-    # TODO: Fazer teste para nao entrar na mesma sala
     new_room = Room.find(params[:id])
     authorize new_room
-    remove_user_from_actual_room if current_user.room_id?
-    new_room.users.append(current_user)
+    return already_in_the_room if new_room.users.include?(current_user)
+
+    current_user.update!(room: new_room)
     render json: new_room
   end
 
@@ -30,7 +30,11 @@ class RoomController < ApplicationController
     params.require(:room).permit!
   end
 
-  def remove_user_from_actual_room
+  def already_in_the_room
+    render status: :ok, json: { message: 'User is already in the room' }
+  end
+
+  def remove_user_from_old_room
     Room.find(current_user.room_id).users.delete(current_user)
   end
 

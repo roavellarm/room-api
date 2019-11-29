@@ -99,6 +99,21 @@ links:
     anyOf:
       - "$ref": "/schemata/user"
       - "$ref": "/schemata/error"
+
+- title: Leave rooms
+  description: It takes out the user all rooms
+  href: "/user/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}/leave_rooms"
+  method: PUT
+  rel: self
+  schema:
+    strictProperties: true
+    properties: {}
+    type:
+      - object
+  targetSchema:
+    anyOf:
+      - "$ref": "/schemata/user"
+      - "$ref": "/schemata/error"
 properties:
   id:
     $ref: /schemata/user#/definitions/id

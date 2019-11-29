@@ -22,6 +22,13 @@ class UserController < ApplicationController
     render status: :ok, json: user
   end
 
+  def leave_rooms
+    user = User.find(params[:id])
+    authorize user
+    user.update!(room_id: nil)
+    render status: :ok, json: user
+  end
+
   private
 
   def user_params
