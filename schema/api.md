@@ -732,4 +732,33 @@ HTTP/1.1 200 OK
 null
 ```
 
+### <a name="link-PUT-user-/user/{(%23%2Fdefinitions%2Fuser%2Fdefinitions%2Fidentity)}/leave_rooms">User Leave rooms</a>
+
+It takes out the user all rooms
+
+```
+PUT /user/{user_id}/leave_rooms
+```
+
+
+#### Curl Example
+
+```bash
+$ curl -n -X PUT https://production-room-api.herokuapp.com//user/$USER_ID/leave_rooms \
+  -d '{
+}' \
+  -H "Content-Type: application/json"
+```
+
+
+#### Response Example
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
 

@@ -87,6 +87,7 @@ links:
       - object
   targetSchema:
     anyOf:
+      - type: "null"
       - $ref: "/schemata/room"
       - $ref: "/schemata/error"
 properties:
