@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_215429) do
+ActiveRecord::Schema.define(version: 2019_11_29_064106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,12 @@ ActiveRecord::Schema.define(version: 2019_11_26_215429) do
     t.index ["org_id"], name: "index_rooms_on_org_id"
   end
 
+  create_table "statuses", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_orgs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "org_id"
@@ -114,11 +120,13 @@ ActiveRecord::Schema.define(version: 2019_11_26_215429) do
     t.string "last_name", null: false
     t.bigint "room_id"
     t.bigint "mood_id"
+    t.bigint "status_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["mood_id"], name: "index_users_on_mood_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["room_id"], name: "index_users_on_room_id"
+    t.index ["status_id"], name: "index_users_on_status_id"
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
@@ -130,4 +138,5 @@ ActiveRecord::Schema.define(version: 2019_11_26_215429) do
   add_foreign_key "user_orgs", "users"
   add_foreign_key "users", "moods"
   add_foreign_key "users", "rooms"
+  add_foreign_key "users", "statuses"
 end
