@@ -3,7 +3,7 @@
   "id": "room-api",
   "links": [
     {
-      "href": "https://production-room-api.herokuapp.com/",
+      "href": "https://production-room-api.herokuapp.com",
       "rel": "self"
     }
   ],

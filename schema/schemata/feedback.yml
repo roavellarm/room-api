@@ -1,7 +1,7 @@
 ---
 $schema: http://json-schema.org/draft-04/hyper-schema
 title: Room API - Feedback
-description: A feedback is _________
+description: A feedback is an information about reactions to a product that is used as a basis for improvement.
 stability: prototype
 type:
 - object

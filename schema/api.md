@@ -29,7 +29,7 @@ GET /admin_texts
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//admin_texts
+$ curl -n https://production-room-api.herokuapp.com/admin_texts
  -G \
   -d tags[]=
 ```
@@ -74,7 +74,7 @@ GET /chat/{chat_id}
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//chat/$CHAT_ID
+$ curl -n https://production-room-api.herokuapp.com/chat/$CHAT_ID
  -G \
   -d 
 ```
@@ -109,7 +109,7 @@ POST /chat
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://production-room-api.herokuapp.com//chat \
+$ curl -n -X POST https://production-room-api.herokuapp.com/chat \
   -d '{
   "room_id": 42,
   "message": "example"
@@ -154,7 +154,7 @@ GET /errors/{error_id}
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//errors/$ERROR_ID
+$ curl -n https://production-room-api.herokuapp.com/errors/$ERROR_ID
 ```
 
 
@@ -198,7 +198,7 @@ GET /faq
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//faq
+$ curl -n https://production-room-api.herokuapp.com/faq
  -G \
   -d 
 ```
@@ -219,7 +219,7 @@ null
 
 Stability: `prototype`
 
-A feedback is _________
+A feedback is an information about reactions to a product that is used as a basis for improvement.
 
 ### Attributes
 
@@ -253,7 +253,7 @@ POST /feedback
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://production-room-api.herokuapp.com//feedback \
+$ curl -n -X POST https://production-room-api.herokuapp.com/feedback \
   -d '{
   "id": 42,
   "name": "example",
@@ -320,7 +320,7 @@ GET /org
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//org
+$ curl -n https://production-room-api.herokuapp.com/org
  -G \
   -d 
 ```
@@ -358,7 +358,7 @@ POST /org
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://production-room-api.herokuapp.com//org \
+$ curl -n -X POST https://production-room-api.herokuapp.com/org \
   -d '{
   "id": 42,
   "user_id": 42,
@@ -392,7 +392,7 @@ GET /org/{org_id}
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//org/$ORG_ID
+$ curl -n https://production-room-api.herokuapp.com/org/$ORG_ID
  -G \
   -d 
 ```
@@ -427,7 +427,7 @@ PUT /org/{org_id}/add_member
 #### Curl Example
 
 ```bash
-$ curl -n -X PUT https://production-room-api.herokuapp.com//org/$ORG_ID/add_member \
+$ curl -n -X PUT https://production-room-api.herokuapp.com/org/$ORG_ID/add_member \
   -d '{
   "id": 42,
   "email": "username@example.com"
@@ -489,7 +489,7 @@ POST /room
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://production-room-api.herokuapp.com//room \
+$ curl -n -X POST https://production-room-api.herokuapp.com/room \
   -d '{
   "id": 42,
   "org_id": 42,
@@ -530,7 +530,7 @@ PUT /room_access
 #### Curl Example
 
 ```bash
-$ curl -n -X PUT https://production-room-api.herokuapp.com//room_access \
+$ curl -n -X PUT https://production-room-api.herokuapp.com/room_access \
   -d '{
   "id": 42
 }' \
@@ -590,7 +590,7 @@ POST /auth/social_media/{social_media_provider}
 #### Curl Example
 
 ```bash
-$ curl -n -X POST https://production-room-api.herokuapp.com//auth/social_media/$SOCIAL_MEDIA_PROVIDER \
+$ curl -n -X POST https://production-room-api.herokuapp.com/auth/social_media/$SOCIAL_MEDIA_PROVIDER \
   -d '{
   "email": "username@example.com",
   "given_name": "example",
@@ -644,7 +644,7 @@ GET /user
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//user
+$ curl -n https://production-room-api.herokuapp.com/user
  -G \
   -d 
 ```
@@ -672,7 +672,7 @@ GET /user/{user_id}
 #### Curl Example
 
 ```bash
-$ curl -n https://production-room-api.herokuapp.com//user/$USER_ID
+$ curl -n https://production-room-api.herokuapp.com/user/$USER_ID
  -G \
   -d 
 ```
@@ -710,7 +710,7 @@ PUT /user/{user_id}
 #### Curl Example
 
 ```bash
-$ curl -n -X PUT https://production-room-api.herokuapp.com//user/$USER_ID \
+$ curl -n -X PUT https://production-room-api.herokuapp.com/user/$USER_ID \
   -d '{
   "first_name": "example",
   "last_name": "example",
@@ -744,7 +744,7 @@ PUT /user/{user_id}/leave_rooms
 #### Curl Example
 
 ```bash
-$ curl -n -X PUT https://production-room-api.herokuapp.com//user/$USER_ID/leave_rooms \
+$ curl -n -X PUT https://production-room-api.herokuapp.com/user/$USER_ID/leave_rooms \
   -d '{
 }' \
   -H "Content-Type: application/json"
