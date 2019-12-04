@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/ModuleLength
 module ModelFactories
   TABLES_TO_CLEAN = ['public.users', 'public.rooms', 'public.orgs',
                      'public.user_orgs'].freeze
 
   # rubocop:disable Metrics/AbcSize
   def seed_database
-    [
-      average_joe, average_fred, average_sally, orange_org, banana_org,
-      cafe_room, music_room, tired_mood, happy_mood, sad_mood, chat_message,
-      chat_message2, chat_message3, status_available, status_busy,
-      status_on_call
-    ]
+    [average_joe, average_fred, average_sally, orange_org, banana_org,
+     cafe_room, music_room, very_dissatisfied, very_bad, bad, dissatisfied, satisfied, happy, very_happy,
+     very_satisfied, chat_message, chat_message2, chat_message3, status_available,
+     status_busy, status_on_call]
   end
   # rubocop:enable Metrics/AbcSize
 
@@ -75,16 +74,36 @@ module ModelFactories
   end
 
   # Seed moods
-  def tired_mood
-    @tired_mood ||= Mood.find_or_create_by!(name: 'tired')
+  def very_dissatisfied
+    @very_dissatisfied ||= Mood.find_or_create_by!(name: 'Very dissatisfied')
   end
 
-  def happy_mood
-    @happy_mood ||= Mood.find_or_create_by!(name: 'happy')
+  def very_bad
+    @very_bad ||= Mood.find_or_create_by!(name: 'Very bad')
   end
 
-  def sad_mood
-    @sad_mood ||= Mood.find_or_create_by!(name: 'sad')
+  def bad
+    @bad ||= Mood.find_or_create_by!(name: 'Bad')
+  end
+
+  def dissatisfied
+    @dissatisfied ||= Mood.find_or_create_by!(name: 'Dissatisfied')
+  end
+
+  def satisfied
+    @satisfied ||= Mood.find_or_create_by!(name: 'Satisfied')
+  end
+
+  def happy
+    @happy ||= Mood.find_or_create_by!(name: 'Happy')
+  end
+
+  def very_happy
+    @very_happy ||= Mood.find_or_create_by!(name: 'Very happy')
+  end
+
+  def very_satisfied
+    @very_satisfied ||= Mood.find_or_create_by!(name: 'Very satisfied')
   end
 
   # Seed chat messages
@@ -118,3 +137,4 @@ module ModelFactories
     @status_on_call ||= Status.find_or_create_by!(status: 'on_call')
   end
 end
+# rubocop:enable Metrics/ModuleLength
