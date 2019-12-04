@@ -562,11 +562,14 @@
             "integer"
           ]
         },
-        "user_id": {
-          "description": "the id of the user that created the org",
+        "user": {
+          "description": "the user that created the org",
           "type": [
-            "integer"
-          ]
+            "object"
+          ],
+          "targetSchema": {
+            "$ref": "#/definitions/user"
+          }
         },
         "name": {
           "description": "the name of the org",
@@ -660,7 +663,7 @@
                 "$ref": "#/definitions/org/definitions/id"
               },
               "user_id": {
-                "$ref": "#/definitions/org/definitions/user_id"
+                "$ref": "#/definitions/user/definitions/id"
               },
               "name": {
                 "$ref": "#/definitions/org/definitions/name"
@@ -748,8 +751,8 @@
         "id": {
           "$ref": "#/definitions/org/definitions/id"
         },
-        "user_id": {
-          "$ref": "#/definitions/org/definitions/user_id"
+        "user": {
+          "$ref": "#/definitions/org/definitions/user"
         },
         "name": {
           "$ref": "#/definitions/org/definitions/name"
@@ -1224,6 +1227,9 @@
           "schema": {
             "additionalProperties": false,
             "properties": {
+              "id": {
+                "$ref": "#/definitions/user/definitions/id"
+              },
               "first_name": {
                 "$ref": "#/definitions/user/definitions/first_name"
               },
@@ -1241,7 +1247,8 @@
                 "type": [
                   "null",
                   "string"
-                ]
+                ],
+                "$ref": "#/definitions/mood/definitions/name"
               }
             },
             "type": [

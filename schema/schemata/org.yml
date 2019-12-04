@@ -10,9 +10,11 @@ definitions:
     description: unique identifier of the org
     readOnly: true
     type: integer
-  user_id:
-    description: the id of the user that created the org
-    type: integer
+  user:
+    description: the user that created the org
+    type: object
+    targetSchema:
+      "$ref": "/schemata/user"
   name:
     description: the name of the org
     type: string
@@ -71,7 +73,7 @@ links:
       id:
         $ref: "/schemata/org#/definitions/id"
       user_id:
-        $ref: "/schemata/org#/definitions/user_id"
+        $ref: "/schemata/user#/definitions/id"
       name:
         $ref: "/schemata/org#/definitions/name"
       description:
@@ -119,8 +121,8 @@ links:
 properties:
   id:
     $ref: /schemata/org#/definitions/id
-  user_id:
-    $ref: /schemata/org#/definitions/user_id
+  user:
+    $ref: /schemata/org#/definitions/user
   name:
     $ref: /schemata/org#/definitions/name
   description:
