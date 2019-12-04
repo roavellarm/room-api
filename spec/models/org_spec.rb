@@ -7,12 +7,12 @@ describe Org, type: :model do
 
   let(:expected_hash) do
     { id: org.id,
-      user_id: org.user_id,
+      user: org.user.as_json,
       name: org.name,
       description: org.description,
       image: org.image,
       rooms: org.rooms,
-      members: org.members }
+      members: org.members.as_json }
   end
 
   describe '#as_json' do

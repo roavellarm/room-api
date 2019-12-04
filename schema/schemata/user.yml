@@ -80,6 +80,8 @@ links:
   schema:
     additionalProperties: false
     properties:
+      id:
+        $ref: /schemata/user#/definitions/id
       first_name:
         $ref: /schemata/user#/definitions/first_name
       last_name:
@@ -93,13 +95,13 @@ links:
         type:
           - "null"
           - string
+        $ref: /schemata/mood#/definitions/name
     type:
       - object
   targetSchema:
     anyOf:
       - "$ref": "/schemata/user"
       - "$ref": "/schemata/error"
-
 - title: Leave rooms
   description: It takes out the user all rooms
   href: "/user/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}/leave_rooms"

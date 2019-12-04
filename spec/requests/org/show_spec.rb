@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'GET /org/:id', type: :request do
   let(:expected_hash) do
     { id: banana_org.id,
-      user_id: average_fred.id,
+      user: average_fred,
       name: 'Banana Company',
       description: 'Aliquam pharetra magna ut augue varius eget vitae est.',
       image: 'https://source.unsplash.com/random',

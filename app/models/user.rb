@@ -25,7 +25,7 @@ class User < ApplicationRecord
       last_name: last_name,
       email: email,
       image: image,
-      mood: mood }
+      mood: mood.as_json }
   end
 
   def self.first_or_initialize_for_google(data)

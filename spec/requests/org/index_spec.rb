@@ -7,7 +7,7 @@ describe 'GET /org', type: :request do
     [
       {
         id: org.id,
-        user_id: user.id,
+        user: user,
         name: 'Foo Organization',
         description: 'Lorem ipsum dolor sit amet',
         image: 'org_background_image',
@@ -27,7 +27,7 @@ describe 'GET /org', type: :request do
       },
       {
         id: orange_org.id,
-        user_id: user.id,
+        user: user,
         name: 'Orange Company',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         image: 'https://source.unsplash.com/random',

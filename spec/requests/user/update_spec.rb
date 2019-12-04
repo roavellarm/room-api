@@ -8,7 +8,7 @@ describe 'PUT /user', type: :request do
       last_name: 'Bar',
       email: 'foo@bar.com',
       image: 'foo_bar_image_url',
-      mood: 'tired' }
+      mood: 'Very satisfied' }
   end
 
   let(:user) { current_user }
@@ -21,7 +21,7 @@ describe 'PUT /user', type: :request do
           last_name: 'Bar',
           email: 'foo@bar.com',
           image: 'foo_bar_image_url',
-          mood: { id: tired_mood.id, name: 'tired' } }.to_json
+          mood: { name: 'Very satisfied' } }.to_json
       end
 
       before { put "/user/#{user.id}", params: params.to_json }
@@ -39,14 +39,14 @@ describe 'PUT /user', type: :request do
     end
 
     context 'when updating only the user mood' do
-      let(:params) { { mood: 'tired' } }
+      let(:params) { { mood: 'Very satisfied' } }
       let(:expected_body) do
         { id: user.id,
           first_name: 'Current',
           last_name: 'User',
           email: 'current.user@email.com',
           image: nil,
-          mood: { id: tired_mood.id, name: 'tired' } }.to_json
+          mood: { name: 'Very satisfied' } }.to_json
       end
 
       before { put "/user/#{user.id}", params: params.to_json }

@@ -38,6 +38,6 @@ class UserController < ApplicationController
 
   def update_mood(user)
     new_mood = Mood.find_by(name: params[:mood])
-    user.update!(mood_id: new_mood.id)
+    user.update!(mood: new_mood)
   end
 end

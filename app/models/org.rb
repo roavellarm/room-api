@@ -11,12 +11,12 @@ class Org < ApplicationRecord
   def as_json(_options = {})
     {
       id: id,
-      user_id: user.id,
+      user: user.as_json,
       name: name,
       description: description,
       image: image,
       rooms: rooms,
-      members: members
+      members: members.as_json
     }
   end
 end

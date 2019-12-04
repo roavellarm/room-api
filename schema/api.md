@@ -306,7 +306,7 @@ An org is an entity such as a company or organization.
 | **members** | *nullable array* | the members list of the org | `null` |
 | **name** | *string* | the name of the org | `"example"` |
 | **rooms** | *nullable array* | the rooms list of the org | `null` |
-| **user_id** | *integer* | the id of the user that created the org | `42` |
+| **user** | *object* | the user that created the org |  |
 
 ### <a name="link-GET-org-/org">Org List</a>
 
@@ -352,7 +352,7 @@ POST /org
 | **id** | *integer* | unique identifier of the org | `42` |
 | **image** | *nullable string* | an image such as an logo of the org | `null` |
 | **name** | *string* | the name of the org | `"example"` |
-| **user_id** | *integer* | the id of the user that created the org | `42` |
+| **user_id** | *integer* | unique identifier of the user | `42` |
 
 
 #### Curl Example
@@ -702,6 +702,7 @@ PUT /user/{user_id}
 | ------- | ------- | ------- | ------- |
 | **email** | *email* | the email of the user | `"username@example.com"` |
 | **first_name** | *string* | first name of the user | `"example"` |
+| **id** | *integer* | unique identifier of the user | `42` |
 | **image** | *nullable string* | the image of the user | `null` |
 | **last_name** | *string* | last name of the user | `"example"` |
 | **mood** | *nullable string* | the mood of the user | `null` |
@@ -712,6 +713,7 @@ PUT /user/{user_id}
 ```bash
 $ curl -n -X PUT https://production-room-api.herokuapp.com/user/$USER_ID \
   -d '{
+  "id": 42,
   "first_name": "example",
   "last_name": "example",
   "email": "username@example.com",
