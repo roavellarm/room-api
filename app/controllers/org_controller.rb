@@ -24,9 +24,9 @@ class OrgController < ApplicationController
   end
 
   def add_member
-    authorize :org
-    user = User.find_by(email: params[:email])
     org = Org.find(params[:id])
+    authorize org
+    user = User.find_by(email: params[:email])
     org.members.append(user)
     render status: :ok, json: org
   end
