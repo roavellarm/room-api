@@ -14,32 +14,85 @@ describe 'PUT /org/:id/add_member', type: :request do
     )
   end
 
-  let(:expected_hash) do
-    {
-      id: org.id,
-      user_id: current_user.id,
-      name: 'Foo Company',
-      description: 'Lorem ipsum dolor sit amet',
-      image: 'https://source.unsplash.com/random',
-      rooms: [],
-      members: [
-        {
-          id: average_sally.id,
-          first_name: 'Sally',
-          last_name: 'Average',
-          email: 'sally@email.com',
-          image: nil,
-          mood: nil
-        }
-      ]
-    }.to_json
-  end
-
   context 'with correct params' do
-    before { put "/org/#{org.id}/add_member", params: params }
+    describe 'when the current user is the owner of the org' do
+      let(:expected_hash) do
+        {
+          id: org.id,
+          user: current_user,
+          name: 'Foo Company',
+          description: 'Lorem ipsum dolor sit amet',
+          image: 'https://source.unsplash.com/random',
+          rooms: [],
+          members: [
+            {
+              id: average_sally.id,
+              first_name: 'Sally',
+              last_name: 'Average',
+              email: 'sally@email.com',
+              image: nil,
+              mood: nil
+            }
+          ]
+        }.to_json
+      end
 
-    it { expect(response).to have_http_status(:ok) }
-    it { expect(response.body).to eq(expected_hash) }
+      before { put "/org/#{org.id}/add_member", params: params }
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq(expected_hash) }
+    end
+
+    describe 'when the current user is a member of the org' do
+      let(:params) { { email: average_joe.email }.to_json }
+
+      let(:org) do
+        Org.create!(
+          user: average_sally,
+          name: 'Sallys Company',
+          description: 'Lorem ipsum dolor sit amet',
+          image: 'https://source.unsplash.com/random'
+        )
+      end
+
+      let(:expected_hash) do
+        {
+          id: org.id,
+          user: average_sally,
+          name: 'Sallys Company',
+          description: 'Lorem ipsum dolor sit amet',
+          image: 'https://source.unsplash.com/random',
+          rooms: [],
+          members: [
+            {
+              id: average_joe.id,
+              first_name: 'Joe',
+              last_name: 'Average',
+              email: 'joe@email.com',
+              image: nil,
+              mood: nil
+            },
+            {
+              id: current_user.id,
+              first_name: 'Current',
+              last_name: 'User',
+              email: 'current.user@email.com',
+              image: nil,
+              mood: nil
+            }
+          ]
+        }.to_json
+      end
+
+      before do
+        org.members.append(current_user)
+        put "/org/#{org.id}/add_member", params: params
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(response.body).to eq(expected_hash) }
+      it { expect(org.reload.as_json.to_json).to eq(expected_hash) }
+    end
   end
 
   context 'without current_user' do
