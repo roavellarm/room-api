@@ -8,9 +8,9 @@ module ModelFactories
   # rubocop:disable Metrics/AbcSize
   def seed_database
     [average_joe, average_fred, average_sally, orange_org, banana_org,
-     cafe_room, music_room, very_dissatisfied, very_bad, bad, dissatisfied, satisfied, happy, very_happy,
-     very_satisfied, chat_message, chat_message2, chat_message3, status_available,
-     status_busy, status_on_call]
+     cafe_room, music_room, very_dissatisfied, very_bad, bad, dissatisfied,
+     satisfied, happy, very_happy, very_satisfied, chat_message, chat_message2,
+     chat_message3, status_available, status_busy, status_on_call]
   end
   # rubocop:enable Metrics/AbcSize
 
