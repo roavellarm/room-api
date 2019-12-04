@@ -14,6 +14,7 @@ class OrgPolicy < ApplicationPolicy
   end
 
   def add_member?
-    user.present?
+    user.present? && user.orgs.include?(record) ||
+      user.orgs_as_member.include?(record)
   end
 end
