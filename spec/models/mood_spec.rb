@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Mood, type: :model do
   subject(:mood) { Mood.new(name: 'tired') }
 
-  let(:expected_hash) { { id: mood.id, name: 'tired' } }
+  let(:expected_hash) { { name: 'tired' } }
 
   describe '#as_json' do
     subject { mood.as_json }

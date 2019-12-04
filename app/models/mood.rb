@@ -6,7 +6,6 @@ class Mood < ApplicationRecord
   has_many :users
 
   def as_json(_options = {})
-    { id: id,
-      name: name }
+    { name: name }
   end
 end
