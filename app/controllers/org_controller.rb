@@ -26,12 +26,14 @@ class OrgController < ApplicationController
   # rubocop:disable Metrics/AbcSize
   def add_member
     org = Org.find(params[:id])
+    owner = org.user
     authorize org
     user = User.find_by(email: params[:email])
     return user_not_register if user.nil?
     return already_member if org.members.include?(user)
 
-    org.members.append(user)
+    UserOrg.create!(org: org, user: user)
+    org.update(user: owner)
     render status: :ok, json: org.as_json
   end
   # rubocop:enable Metrics/AbcSize
