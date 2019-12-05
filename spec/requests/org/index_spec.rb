@@ -50,6 +50,7 @@ describe 'GET /org', type: :request do
             last_name: 'User',
             email: 'current.user@email.com',
             image: nil,
+            status: nil,
             mood: nil
           }
         ]
@@ -81,7 +82,7 @@ describe 'GET /org', type: :request do
   context 'without params' do
     before do
       room
-      orange_org.members.append(user)
+      UserOrg.create!(org: orange_org, user: user)
       get '/org'
     end
 

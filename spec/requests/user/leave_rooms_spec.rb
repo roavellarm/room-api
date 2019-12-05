@@ -12,11 +12,12 @@ describe 'PUT /user/:id/leave_rooms', type: :request do
         last_name: 'User',
         email: 'current.user@email.com',
         image: nil,
+        status: nil,
         mood: nil }.to_json
     end
 
     before do
-      current_user.update!(room: music_room)
+      current_user.update(room: music_room)
       put "/user/#{user.id}/leave_rooms"
     end
 
