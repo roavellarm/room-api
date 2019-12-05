@@ -22,6 +22,7 @@ describe 'POST /auth - Sign Up', type: :request do
       last_name: 'Connor',
       email: 'john.connor@email.com',
       image: nil,
+      status: nil,
       mood: User.last.mood }
   end
 

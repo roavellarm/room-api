@@ -24,12 +24,13 @@ describe 'PUT /room_access', type: :request do
             last_name: 'User',
             email: 'current.user@email.com',
             image: nil,
+            status: nil,
             mood: current_user.mood }
         ] }.to_json
     end
 
     before do
-      current_user.update!(room: music_room)
+      current_user.update(room: music_room)
       put '/room_access', params: params.to_json
     end
 

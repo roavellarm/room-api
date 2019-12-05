@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :admin_texts, only: %i[index]
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     passwords: 'auth/passwords'
+    # registrations: 'auth/registrations'
   }
   post 'auth/social_media/:provider', to: 'social_media#auth'
 

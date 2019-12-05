@@ -21,6 +21,7 @@ describe 'PUT /user', type: :request do
           last_name: 'Bar',
           email: 'foo@bar.com',
           image: 'foo_bar_image_url',
+          status: nil,
           mood: { name: 'Very satisfied' } }.to_json
       end
 
@@ -46,6 +47,7 @@ describe 'PUT /user', type: :request do
           last_name: 'User',
           email: 'current.user@email.com',
           image: nil,
+          status: nil,
           mood: { name: 'Very satisfied' } }.to_json
       end
 

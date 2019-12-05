@@ -16,7 +16,7 @@ class Org < ApplicationRecord
       description: description,
       image: image,
       rooms: rooms,
-      members: members.as_json
+      members: members.order(first_name: :asc).as_json
     }
   end
 end

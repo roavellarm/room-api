@@ -31,6 +31,7 @@ describe 'PUT /org/:id/add_member', type: :request do
               last_name: 'Average',
               email: 'sally@email.com',
               image: nil,
+              status: nil,
               mood: nil
             }
           ]
@@ -65,19 +66,21 @@ describe 'PUT /org/:id/add_member', type: :request do
           rooms: [],
           members: [
             {
-              id: average_joe.id,
-              first_name: 'Joe',
-              last_name: 'Average',
-              email: 'joe@email.com',
-              image: nil,
-              mood: nil
-            },
-            {
               id: current_user.id,
               first_name: 'Current',
               last_name: 'User',
               email: 'current.user@email.com',
               image: nil,
+              status: nil,
+              mood: nil
+            },
+            {
+              id: average_joe.id,
+              first_name: 'Joe',
+              last_name: 'Average',
+              email: 'joe@email.com',
+              image: nil,
+              status: nil,
               mood: nil
             }
           ]
@@ -116,19 +119,21 @@ describe 'PUT /org/:id/add_member', type: :request do
           rooms: [],
           members: [
             {
-              id: average_joe.id,
-              first_name: 'Joe',
-              last_name: 'Average',
-              email: 'joe@email.com',
-              image: nil,
-              mood: nil
-            },
-            {
               id: current_user.id,
               first_name: 'Current',
               last_name: 'User',
               email: 'current.user@email.com',
               image: nil,
+              status: nil,
+              mood: nil
+            },
+            {
+              id: average_joe.id,
+              first_name: 'Joe',
+              last_name: 'Average',
+              email: 'joe@email.com',
+              image: nil,
+              status: nil,
               mood: nil
             }
           ]

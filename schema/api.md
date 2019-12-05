@@ -565,6 +565,7 @@ A Login with Social Media
 | **[image](#resource-user)** | *nullable string* | the image of the user | `null` |
 | **[last_name](#resource-user)** | *string* | last name of the user | `"example"` |
 | **[mood](#resource-user)** | *nullable object* | the current user mood | `null` |
+| **[status](#resource-user)** | *nullable object* | the current user availability status | `null` |
 
 ### <a name="link-POST-social_media-/auth/social_media/{(%23%2Fdefinitions%2Fsocial_media%2Fdefinitions%2Fprovider)}">Social Media Create</a>
 
@@ -631,6 +632,7 @@ A user
 | **image** | *nullable string* | the image of the user | `null` |
 | **last_name** | *string* | last name of the user | `"example"` |
 | **mood** | *nullable object* | the current user mood | `null` |
+| **status** | *nullable object* | the current user availability status | `null` |
 
 ### <a name="link-GET-user-/user">User List</a>
 
@@ -706,6 +708,7 @@ PUT /user/{user_id}
 | **image** | *nullable string* | the image of the user | `null` |
 | **last_name** | *string* | last name of the user | `"example"` |
 | **mood** | *nullable string* | the mood of the user | `null` |
+| **status** | *nullable string* | the status of the user | `null` |
 
 
 #### Curl Example
@@ -718,6 +721,7 @@ $ curl -n -X PUT https://production-room-api.herokuapp.com/user/$USER_ID \
   "last_name": "example",
   "email": "username@example.com",
   "image": null,
+  "status": null,
   "mood": null
 }' \
   -H "Content-Type: application/json"

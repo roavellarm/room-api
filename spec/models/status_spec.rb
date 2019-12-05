@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Status, type: :model do
   subject(:status) { status_available }
 
-  let(:expected_hash) { { id: status.id, status: 'available' } }
+  let(:expected_hash) { { status: 'available' } }
 
   describe '#as_json' do
     subject { status.as_json }

@@ -19,14 +19,14 @@ class UserController < ApplicationController
   def update
     user = User.find(params[:id])
     authorize user
-    user.update!(user_params) if params[:user].present?
+    user.update(user_params) if params[:user].present?
     update_mood(user) if params[:mood].present?
     render status: :ok, json: user
   end
 
   def leave_rooms
     user = User.find(params[:id])
-    user.update!(room_id: nil)
+    user.update(room_id: nil)
     render status: :ok, json: user
   end
 
@@ -38,6 +38,6 @@ class UserController < ApplicationController
 
   def update_mood(user)
     new_mood = Mood.find_by(name: params[:mood])
-    user.update!(mood: new_mood)
+    user.update(mood: new_mood)
   end
 end

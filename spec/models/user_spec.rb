@@ -12,6 +12,7 @@ describe User, type: :model do
       last_name: user.last_name,
       email: user.email,
       image: user.image,
+      status: user.status.as_json,
       mood: user.mood.as_json
     }
   end
