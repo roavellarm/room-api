@@ -40,7 +40,7 @@ describe 'PUT /user', type: :request do
     end
 
     context 'when updating only the user mood' do
-      let(:params) { { mood: { name: 'Very satisfied'} } }
+      let(:params) { { mood: { name: 'Very satisfied' } } }
       let(:expected_body) do
         { id: user.id,
           first_name: 'Current',
