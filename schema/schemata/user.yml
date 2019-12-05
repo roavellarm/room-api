@@ -99,13 +99,12 @@ links:
         description: the status of the user
         type:
           - "null"
-          - string
+          - object
       mood:
         description: the mood of the user
         type:
           - "null"
-          - string
-        $ref: /schemata/mood#/definitions/name
+          - object
     type:
       - object
   targetSchema:

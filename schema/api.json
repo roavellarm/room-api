@@ -1256,16 +1256,15 @@
                 "description": "the status of the user",
                 "type": [
                   "null",
-                  "string"
+                  "object"
                 ]
               },
               "mood": {
                 "description": "the mood of the user",
                 "type": [
                   "null",
-                  "string"
-                ],
-                "$ref": "#/definitions/mood/definitions/name"
+                  "object"
+                ]
               }
             },
             "type": [

@@ -707,8 +707,6 @@ PUT /user/{user_id}
 | **id** | *integer* | unique identifier of the user | `42` |
 | **image** | *nullable string* | the image of the user | `null` |
 | **last_name** | *string* | last name of the user | `"example"` |
-| **mood** | *nullable string* | the mood of the user | `null` |
-| **status** | *nullable string* | the status of the user | `null` |
 
 
 #### Curl Example
