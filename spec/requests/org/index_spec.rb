@@ -69,17 +69,7 @@ describe 'GET /org', type: :request do
             online_members: []
           }
         ],
-        members: [
-          {
-            id: current_user.id,
-            first_name: 'Current',
-            last_name: 'User',
-            email: 'current.user@email.com',
-            image: nil,
-            status: nil,
-            mood: nil
-          }
-        ]
+        members: []
       },
       {
         id: orange_org.id,
