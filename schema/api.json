@@ -1089,6 +1089,9 @@
         "image": {
           "$ref": "#/definitions/user/definitions/image"
         },
+        "status": {
+          "$ref": "#/definitions/user/definitions/status"
+        },
         "mood": {
           "$ref": "#/definitions/user/definitions/mood"
         }
@@ -1135,6 +1138,13 @@
           "type": [
             "null",
             "string"
+          ]
+        },
+        "status": {
+          "description": "the current user availability status",
+          "type": [
+            "null",
+            "object"
           ]
         },
         "room_id": {
@@ -1242,6 +1252,13 @@
               "image": {
                 "$ref": "#/definitions/user/definitions/image"
               },
+              "status": {
+                "description": "the status of the user",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
               "mood": {
                 "description": "the mood of the user",
                 "type": [
@@ -1307,6 +1324,9 @@
         },
         "image": {
           "$ref": "#/definitions/user/definitions/image"
+        },
+        "status": {
+          "$ref": "#/definitions/user/definitions/status"
         },
         "mood": {
           "$ref": "#/definitions/user/definitions/mood"

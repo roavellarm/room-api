@@ -88,6 +88,8 @@ properties:
     $ref: /schemata/user#/definitions/email
   image:
     $ref: /schemata/user#/definitions/image
+  status:
+    $ref: /schemata/user#/definitions/status
   mood:
     $ref: /schemata/user#/definitions/mood
 additionalProperties: false
