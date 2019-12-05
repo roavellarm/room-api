@@ -56,6 +56,24 @@ describe 'PUT /user', type: :request do
       it { expect(response).to have_http_status(:ok) }
       it { expect(user.reload.as_json.to_json).to eq(expected_body) }
     end
+
+    context 'when updating only the user status' do
+      let(:params) { { status: 'on_call' } }
+      let(:expected_body) do
+        { id: user.id,
+          first_name: 'Current',
+          last_name: 'User',
+          email: 'current.user@email.com',
+          image: nil,
+          status: { status: 'on_call' },
+          mood: nil }.to_json
+      end
+
+      before { put "/user/#{user.id}", params: params.to_json }
+
+      it { expect(response).to have_http_status(:ok) }
+      it { expect(user.reload.as_json.to_json).to eq(expected_body) }
+    end
   end
 
   context 'without current_user' do
