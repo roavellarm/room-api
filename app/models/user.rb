@@ -25,6 +25,7 @@ class User < ApplicationRecord
       last_name: last_name,
       email: email,
       image: image,
+      status: status.as_json,
       mood: mood.as_json }
   end
 

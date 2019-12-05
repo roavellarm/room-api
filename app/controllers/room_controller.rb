@@ -20,7 +20,7 @@ class RoomController < ApplicationController
     authorize new_room
     return already_in_the_room if new_room.users.include?(current_user)
 
-    current_user.update!(room: new_room)
+    current_user.update(room: new_room)
     render json: new_room
   end
 

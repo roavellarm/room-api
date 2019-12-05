@@ -56,7 +56,7 @@ class GenerateRoomToken
   end
 
   def success
-    @room.update!(token: @new_token)
+    @room.update(token: @new_token)
     { success: true, room: @room }
   end
 end
