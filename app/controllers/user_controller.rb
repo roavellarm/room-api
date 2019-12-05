@@ -16,13 +16,16 @@ class UserController < ApplicationController
     render json: user
   end
 
+  # rubocop:disable Metrics/AbcSize
   def update
     user = User.find(params[:id])
     authorize user
     user.update(user_params) if params[:user].present?
     update_mood(user) if params[:mood].present?
+    update_status(user) if params[:status].present?
     render status: :ok, json: user
   end
+  # rubocop:enable Metrics/AbcSize
 
   def leave_rooms
     user = User.find(params[:id])
@@ -39,5 +42,10 @@ class UserController < ApplicationController
   def update_mood(user)
     new_mood = Mood.find_by(name: params[:mood])
     user.update(mood: new_mood)
+  end
+
+  def update_status(user)
+    new_status = Status.find_by(status: params[:status])
+    user.update(status: new_status)
   end
 end
