@@ -7,6 +7,7 @@
 
 ![meeting room](https://raw.githubusercontent.com/roavellarm/room-web/master/public/images/meeting-room.jpg)
 
+
 This is the API of the Room project which is a web application that aims to improve the interaction experience of remote workers.
 
 You can get the [frontend](https://github.com/roavellarm/room-web), the [Endpoints documentation](https://github.com/roavellarm/room-api/blob/master/schema/api.md) and the [MVP Process Documentation](https://github.com/roavellarm/room-doc/blob/master/README.md) on github.
