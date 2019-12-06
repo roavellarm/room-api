@@ -40,12 +40,13 @@ class UserController < ApplicationController
   end
 
   def update_mood(user)
-    new_mood = Mood.find_by(name: params[:mood])
+    mood = params[:mood][:name]
+    new_mood = Mood.find_by(name: mood)
     user.update(mood: new_mood)
   end
 
   def update_status(user)
-    new_status = Status.find_by(status: params[:status])
+    new_status = Status.find_by(status: params[:status][:status])
     user.update(status: new_status)
   end
 end

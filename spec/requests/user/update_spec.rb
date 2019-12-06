@@ -8,7 +8,7 @@ describe 'PUT /user', type: :request do
       last_name: 'Bar',
       email: 'foo@bar.com',
       image: 'foo_bar_image_url',
-      mood: 'Very satisfied' }
+      mood: { name: 'Very satisfied' } }
   end
 
   let(:user) { current_user }
@@ -40,7 +40,7 @@ describe 'PUT /user', type: :request do
     end
 
     context 'when updating only the user mood' do
-      let(:params) { { mood: 'Very satisfied' } }
+      let(:params) { { mood: { name: 'Very satisfied' } } }
       let(:expected_body) do
         { id: user.id,
           first_name: 'Current',
@@ -58,7 +58,7 @@ describe 'PUT /user', type: :request do
     end
 
     context 'when updating only the user status' do
-      let(:params) { { status: 'on_call' } }
+      let(:params) { { status: { status: 'on_call' } } }
       let(:expected_body) do
         { id: user.id,
           first_name: 'Current',
