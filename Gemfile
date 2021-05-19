@@ -15,7 +15,7 @@ gem 'json_schema', '0.20.7' # DO NOT UPDATE THIS
 gem 'mjml-rails', '4.3.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'prmd', '~> 0.13'
-gem 'puma', '~> 4.0'
+gem 'puma', '~> 4.3'
 gem 'pundit'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.2.3'
